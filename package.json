@@ -1,7 +1,7 @@
 {
-  "name": "react-project-starter",
+  "name": "react-redux-weather-app",
   "version": "1.0.0",
-  "description": "React Starter Kit",
+  "description": "A weather forecasting app built with React and Redux",
   "main": "index.js",
   "scripts": {
     "start": "webpack & webpack-dev-server --open"

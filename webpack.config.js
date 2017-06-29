@@ -57,6 +57,11 @@ module.exports = {
             filename: 'index.html',
             template: __dirname + '/src/index.html',
             showErrors: false
+        }),
+        new webpack.DefinePlugin({
+          "process.env": {
+             NODE_ENV: JSON.stringify("production")
+           }
         })
   ],
   //dev server configuration

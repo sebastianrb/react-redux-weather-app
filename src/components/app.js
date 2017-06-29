@@ -1,10 +1,9 @@
-import "../styles/main.scss";
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import TestComponent from "./component";
-import SaveData from "./component_two";
 
-//create a new component. This component should generate HTML
+import "../styles/main.scss";
+import Header from "./header";
+
 export default class App extends Component {
     constructor(props) {
         //set props
@@ -15,9 +14,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-               React and Redux are working! Happy day.
-               <TestComponent />
-               <SaveData />
+                <Header />
             </div>
         )
     }
