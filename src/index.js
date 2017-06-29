@@ -9,6 +9,8 @@ import { BrowserRouter } from "react-router-dom";
 import App from './components/app';
 import reducers from './reducers';
 
+export const transitionSetting = "opacity 0.6s .1s, transform 0.6s";
+
 //log current redux state for development purposes
 const logger = store => next => action => {
   console.group(action.type)

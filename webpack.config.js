@@ -35,18 +35,25 @@ module.exports = {
             {
                 test: /\.(sass|scss)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
-            }
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loaders: [
+                  'file-loader',
+                  'image-webpack-loader'
+                ]
+              }
         ]
     },
     plugins: [
         //uglify JS and CSS
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-                drop_console: false,
-            },
-            sourceMap: true
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false,
+        //         drop_console: false,
+        //     },
+        //     sourceMap: true
+        // }),
         //output CSS file
         new ExtractTextPlugin("app.min.css"),
         //minify CSS
@@ -60,7 +67,7 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
           "process.env": {
-             NODE_ENV: JSON.stringify("production")
+             NODE_ENV: JSON.stringify("development")
            }
         })
   ],
@@ -68,7 +75,8 @@ module.exports = {
   devServer: {
       contentBase: __dirname + '/dist',
       compress: true,
-      port: 9000
+      port: 9000,
+      historyApiFallback: true
   }
 
 }

@@ -1,5 +1,9 @@
-$mainColor: navy;
-
-body {
-
-}
+@import
+"./variables",
+"./base",
+"./header",
+"./footer",
+"./weather-panel",
+"./about-panel",
+"./clothing-panel",
+"./site-content";

@@ -1,0 +1,24 @@
+@import "./variables";
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html,
+main {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    max-width: 1500px;
+    font-size: 1.2em;
+    font-family: "Roboto", Arial;
+    margin: 0 auto;
+    overflow-x: hidden;
+    padding: 0;
+    background: radial-gradient(circle, white, rgba(181, 181, 181, 0.3));
+    color: $primary-color;
+}
+
