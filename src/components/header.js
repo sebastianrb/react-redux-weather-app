@@ -11,6 +11,7 @@ class Header extends React.Component {
 
     this.state = {
         term: "",
+        inputValid: true,
         sections: ["weather", "clothing", "about"],
         // selectedSection: "weather"
         selectedSection: (window.location.pathname === "/" ? "weather" : window.location.pathname.split("/")[1])
@@ -34,14 +35,20 @@ class Header extends React.Component {
     if(searchTerm && searchTerm.length > 2) {
       this.props.weatherSearch(searchTerm);
       this.setState({
-        term: ""
+        term: "",
+        inputValid: true
+      })
+    } else {
+      this.setState({
+        inputValid: false
       })
     }
   }
 
   onInputChange(event) {
     this.setState({
-      term: event.target.value
+      term: event.target.value,
+      inputValid: true
     });
   }
 
@@ -51,17 +58,16 @@ class Header extends React.Component {
     const clothingNavClasses = `header__nav-item ${this.state.selectedSection === "clothing" ? "selected" : ""}`;
     const aboutNavClasses = `header__nav-item ${this.state.selectedSection === "about" ? "selected" : ""}`;
 
-    //generate list items
+    //generate list items using map
     const listItems = this.state.sections.map((section) => {
 
       const classList = `header__nav-item ${this.state.selectedSection === section ? "selected" : ""}`;
-      const image = (section === "weather" ? "sun" : section === "clothing" ? "shirt" : "info");
       const linkTo = (section === "weather" ? "/" : section === "clothing" ? "/clothing" : "/about");
 
       return (
         <li className={classList} onClick={this.onNavItemClick.bind(this, section)} key={section}>
           <Link to={linkTo} className="header__nav-item-link">
-            <img className="header__nav-image" src={require(`../images/${image}.svg`)} alt="placeholder+image" />
+            <img className="header__nav-image" src={require(`../images/${section}.svg`)} alt="placeholder+image" />
             {section}
           </Link>
         </li>
@@ -87,11 +93,15 @@ class Header extends React.Component {
           <form className="header__search-form">
             <input
               value={this.state.term}
-              placeholder="Enter the name of an American city"
+              placeholder="Enter the name of a city"
               type="text"
-              className="header__search-field"
+              className={"header__search-field" + (this.state.inputValid ? "" : " invalid-term")}
               onChange={this.onInputChange.bind(this)}
+              onFocus={() => this.setState({inputValid: true})}
             />
+            <div className="invalid-term-warning">
+              <p className="invalid-term-warning__Caption">Your search term must be at least three characters long</p>
+            </div>
             <button
               className="header__submit-button"
               onClick={this.onInputSubmit.bind(this)}

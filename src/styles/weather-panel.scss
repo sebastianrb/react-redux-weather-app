@@ -1,1 +1,33 @@
+.weather-panel {
+    height: 100%;
 
+    .weather-panel__day-list {
+        width: 95%;
+        height: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+
+    .weather-panel__day {
+        text-align: center;
+        width: 20%;
+        min-width: 300px;
+        height: 400px;
+        // border-radius: 4px;
+        background: transparentize($primary-color, .9);
+        overflow: hidden;
+        // box-shadow: 0 0 20px 1px darkgray;
+        font-weight: lighter;
+        color: transparentize($primary-color, .3);
+    }
+
+    .weather-panel__day-header {
+        margin: 0;
+        padding: 25px;
+    }
+}

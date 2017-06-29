@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = (props) => {
     return (
         <footer className="footer">
-            Developed by Sebastian Ramirez-Brunner
+            &copy; 2017 | Developed by Sebastian Ramirez-Brunner
         </footer>
     );
 }

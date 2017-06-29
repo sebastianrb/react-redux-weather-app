@@ -1,0 +1,10 @@
+.footer {
+    background: transparentize($primary-color, .6);
+    padding: 20px;
+    color: white;
+    height: 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
