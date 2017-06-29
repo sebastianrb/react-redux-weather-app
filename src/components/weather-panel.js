@@ -11,6 +11,10 @@ export default class WeatherPanel extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <EasyTransition

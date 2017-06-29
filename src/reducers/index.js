@@ -1,9 +1,9 @@
 //default root reducer skeleton
-import TestReducer from "./test_reducer";
+import weatherReducer from "./weather_reducer";
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  data: TestReducer
+  weather: weatherReducer
 });
 
 export default rootReducer;

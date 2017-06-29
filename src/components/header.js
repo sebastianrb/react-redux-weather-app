@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { weatherSearch } from "../actions/"
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
   constructor(props) {
     super(props);
@@ -9,13 +12,36 @@ export default class Header extends React.Component {
     this.state = {
         term: "",
         sections: ["weather", "clothing", "about"],
-        selectedSection: "weather"
+        // selectedSection: "weather"
+        selectedSection: (window.location.pathname === "/" ? "weather" : window.location.pathname.split("/")[1])
     };
+  }
+
+  componentDidMount() {
+
   }
 
   onNavItemClick(section) {
     this.setState({
       selectedSection: section
+    });
+  }
+
+  onInputSubmit(event) {
+    event.preventDefault();
+    // //execute action creator with search term
+    const searchTerm = this.state.term;
+    if(searchTerm && searchTerm.length > 2) {
+      this.props.weatherSearch(searchTerm);
+      this.setState({
+        term: ""
+      })
+    }
+  }
+
+  onInputChange(event) {
+    this.setState({
+      term: event.target.value
     });
   }
 
@@ -59,8 +85,19 @@ export default class Header extends React.Component {
         </div>
         <div className="header__search-bar">
           <form className="header__search-form">
-            <input placeholder="Enter the name of an American city" type="text" className="header__search-field"/>
-            <button className="header__submit-button">Find Weather</button>
+            <input
+              value={this.state.term}
+              placeholder="Enter the name of an American city"
+              type="text"
+              className="header__search-field"
+              onChange={this.onInputChange.bind(this)}
+            />
+            <button
+              className="header__submit-button"
+              onClick={this.onInputSubmit.bind(this)}
+              >
+              Find Weather
+            </button>
           </form>
         </div>
       </div>
@@ -68,3 +105,13 @@ export default class Header extends React.Component {
 
   }
 }
+
+
+//connect to redux
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ weatherSearch: weatherSearch }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Header);
+
