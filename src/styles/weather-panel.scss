@@ -1,5 +1,6 @@
 .weather-panel {
-    height: 100%;
+    // height: 100%;
+    height: auto;
 
     .weather-panel__day-list {
         width: 95%;
@@ -13,6 +14,15 @@
         list-style: none;
     }
 
+    .city-name-header {
+        // margin: 0;
+        // font-size: 1.2em;
+        margin: 0 auto 60px;
+        font-size: 1.2em;
+        width: 50%;
+        padding: 20px;
+    }
+
     .weather-panel__day {
         text-align: center;
         width: 20%;
@@ -24,10 +34,64 @@
         // box-shadow: 0 0 20px 1px darkgray;
         font-weight: lighter;
         color: transparentize($primary-color, .3);
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .weather-panel__day.now {
+        transform: scale(1.1);
+        border: 2px solid rgba(1,1,56,.2);
     }
 
     .weather-panel__day-header {
-        margin: 0;
-        padding: 25px;
+        margin: 0 auto 20px;
+        padding: 35px 0 5px;
+    }
+
+    .weather-panel__day-content {
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weather-panel__day-placeholder-text {
+        color: transparentize($primary-color, .6);
+        font-size: 1em;
+        width: 75%;
+        margin: 0 auto;
     }
 }
+
+
+//weather data styling
+.weather-panel__conditions-icon {
+    width: 35%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.weather-panel__conditions-caption {
+    margin: 5px auto;
+    font-size: 1.5em;
+}
+
+.weather-panel__day-content-high,
+p.weather-panel__day-content-low,
+p.weather-panel__day-content-humidity {
+    margin: 0 auto 10px;
+}
+
+.weather-panel__day-content-high {
+    color: maroon;
+}
+
+.weather-panel__day-content-low {
+    color: darkblue;
+}
+
+.not-displayed {
+    display: none;
+}
+
