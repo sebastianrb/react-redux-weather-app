@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { transitionSetting } from "../index.js";
 import { connect } from "react-redux";
 import conditions from "./conditions-object";
+import WeatherDay from "./weather-day";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 let daysListResult;
 
@@ -27,19 +29,65 @@ class WeatherPanel extends React.Component {
           dayTitle: "The Next Day",
           classText: "next-day"
         }
-
       ]
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
    console.log("Component mounting");
   }
 
+  renderDayList() {
+     if(this.props.weather.count === 0) {
+      console.log("0 count");
+      return daysListResult = this.state.daysPlaceholder.map((dayObject) => {
+        return (
+            <WeatherDay
+                dataPresent="noResult"
+                classTest={dayObject.classText}
+                dayTitle={dayObject.dayTitle}
+                key={`${dayObject.dayTitle}`}
+                lastTerm={this.props.lastTerm}
+            />
+         );
+      });
+    } else if(Object.keys(this.props.weather).length === 0) {
+      //default on page load
+      return daysListResult = this.state.daysPlaceholder.map((dayObject) => {
+        return (
+            <WeatherDay
+                dataPresent={false}
+                classTest={dayObject.classText}
+                dayTitle={dayObject.dayTitle}
+                key={`${dayObject.dayTitle}`}
+            />
+         );
+      });
+    } else {
+      //return days with data flowing through
+      return daysListResult = this.props.weather.days.map((day) => {
+        return (
+            <WeatherDay
+                dataPresent={true}
+                dayName={day.day}
+                city={this.props.weather.location.city}
+                caption={day.caption}
+                imageURL={this.state.conditions[day.conditionCode].image}
+                conditionDescription={this.state.conditions[day.conditionCode].description}
+                high={day.high}
+                low={day.low}
+                humidity={(day.humidity ? day.humidity : "")}
+                key={`${day.day}-${this.props.weather.location.city}`}
+            />
+        );
+      });
+    }
+  }
+
   renderCityHeader() {
-    if(Object.keys(this.props.weather).length > 0) {
+    if(Object.keys(this.props.weather).length > 0 && Object.keys(this.props.weather).length !== 1) {
       return (
-        <h3 className="city-name-header">Here's the forecast for {this.props.weather.location.city}, {this.props.weather.location.region}, {this.props.weather.location.country}</h3>
+        <h3 className="city-name-header">Here's the forecast for <span>{this.props.weather.location.city}, {this.props.weather.location.region}, {this.props.weather.location.country}</span></h3>
       );
     } else {
       return (
@@ -49,43 +97,12 @@ class WeatherPanel extends React.Component {
   }
 
   render() {
-    // generate day list items
-    if(Object.keys(this.props.weather).length === 0) {
-      console.log("No data");
-      //user has not searched for a city; placholder text
-      daysListResult = this.state.daysPlaceholder.map((dayObject) => {
-        return (
-           <li className={"weather-panel__day" + ` ${dayObject.classText}`} key={dayObject.dayTitle}>
-             <h3 className="weather-panel__day-header">{dayObject.dayTitle}</h3>
-             <div className="weather-panel__day-content">
-               <p className="weather-panel__day-placeholder-text">Search for a city to see weather data.</p>
-             </div>
-           </li>
-         );
-      });
-    } else {
-      //user has searched for a city
-      daysListResult = this.props.weather.days.map((day) => {
-        return (
-           <li className={"weather-panel__day" + ` ${day.day}`} key={day.day}>
-             <h3 className="weather-panel__day-header">{day.caption}</h3>
-             <img src={require(`../images/${this.state.conditions[day.conditionCode].image}.svg`)} alt="placeholder+image" className="weather-panel__conditions-icon" />
-             <h4 className="weather-panel__conditions-caption">{this.state.conditions[day.conditionCode].description}</h4>
-             <div className="weather-panel__day-content">
-              <p className="weather-panel__day-content-high">
-                <i className="fa fa-thermometer-full" aria-hidden="true"></i>  High of {day.high}&deg;
-              </p>
-              <p className="weather-panel__day-content-low">
-                <i className="fa fa-thermometer-empty" aria-hidden="true"></i>  Low of {day.low}&deg;
-              </p>
-              <p className={"weather-panel__day-content-humidity" + (day.day === "now" ? "" : " not-displayed")}>
-                <i className="fa fa-tint" aria-hidden="true"></i>  Humidity of {day.humidity}
-              </p>
-             </div>
-           </li>
-         );
-      });
-    }
+
+    const transitionOptions = {
+        transitionName: "fade",
+        transitionEnterTimeout: 100,
+        transitionLeaveTimeout: 0
+    };
 
     return (
       <EasyTransition
@@ -97,7 +114,9 @@ class WeatherPanel extends React.Component {
         <div className="weather-panel">
           {this.renderCityHeader()}
           <ul className="weather-panel__day-list">
-            {daysListResult}
+            <ReactCSSTransitionGroup {...transitionOptions}>
+                {this.renderDayList()}
+            </ReactCSSTransitionGroup>
           </ul>
         </div>
     </EasyTransition>
@@ -110,7 +129,8 @@ class WeatherPanel extends React.Component {
 
 function mapStateToProps(state) {
     return {
-      weather: state.weather
+      weather: state.weather,
+      lastTerm: state.lastTerm
     }
 }
 

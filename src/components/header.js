@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { weatherSearch } from "../actions/"
+import { weatherSearch } from "../actions/";
+import { getLastTerm } from "../actions/";
 
 class Header extends React.Component {
 
@@ -10,16 +11,31 @@ class Header extends React.Component {
     super(props);
 
     this.state = {
+        test: "oldValue",
         term: "",
         inputValid: true,
+        nothingFound: false,
         sections: ["weather", "clothing", "about"],
         // selectedSection: "weather"
         selectedSection: (window.location.pathname === "/" ? "weather" : window.location.pathname.split("/")[1])
     };
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.weather.count === 0) {
+      this.toggleNothingFound(true);
+      console.log("Nothing found");
+    } else {
+      this.toggleNothingFound(false);
+      console.log("Found");
+    }
+  }
 
+  toggleNothingFound(found) {
+    //set data on state/template
+    this.setState({
+      nothingFound: found
+    });
   }
 
   onNavItemClick(section) {
@@ -33,10 +49,12 @@ class Header extends React.Component {
     // //execute action creator with search term
     const searchTerm = this.state.term;
     if(searchTerm && searchTerm.length > 2) {
+      this.props.getLastTerm(searchTerm);
       this.props.weatherSearch(searchTerm);
+      console.log("Last term in weather panel: ", this.state.term )
       this.setState({
         term: "",
-        inputValid: true
+        inputValid: true,
       })
     } else {
       this.setState({
@@ -48,7 +66,8 @@ class Header extends React.Component {
   onInputChange(event) {
     this.setState({
       term: event.target.value,
-      inputValid: true
+      inputValid: true,
+      nothingFound: false
     });
   }
 
@@ -95,12 +114,15 @@ class Header extends React.Component {
               value={this.state.term}
               placeholder="Enter the name of a city"
               type="text"
-              className={"header__search-field" + (this.state.inputValid ? "" : " invalid-term")}
+              className={"header__search-field" + (this.state.inputValid ? "" : " invalid-term") + (this.state.nothingFound ? " nothing-found" : "")}
               onChange={this.onInputChange.bind(this)}
-              onFocus={() => this.setState({inputValid: true})}
+              onFocus={() => this.setState({inputValid: true, nothingFound: false})}
             />
             <div className="invalid-term-warning">
               <p className="invalid-term-warning__Caption">Your search term must be at least three characters long</p>
+            </div>
+            <div className="invalid-term-no-results">
+              <p className="invalid-term-warning__Caption">No results found. Please try again</p>
             </div>
             <button
               className="header__submit-button"
@@ -119,9 +141,16 @@ class Header extends React.Component {
 
 //connect to redux
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ weatherSearch: weatherSearch }, dispatch);
+function mapStateToProps(state) {
+    return {
+      weather: state.weather
+    }
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ weatherSearch: weatherSearch, getLastTerm: getLastTerm }, dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
 

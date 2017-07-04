@@ -12,7 +12,9 @@ const AboutPanel = (props) => {
             transition={transitionSetting}
             finalStyle={{opacity: 1, transform: "scale(1)"}}
         >
-            <div>This is the about panel</div>
+            <div className="about-panel">
+                <h2 className="about-panel__main-heading">About the Weather App</h2>
+            </div>
         </EasyTransition>
     );
 }

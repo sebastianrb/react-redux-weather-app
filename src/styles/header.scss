@@ -80,7 +80,8 @@
         }
     }
 
-    .invalid-term-warning {
+    .invalid-term-warning,
+    .invalid-term-no-results {
         width: 250px;
         height: auto;
         padding: 10px;
@@ -98,7 +99,8 @@
         z-index: 10;
     }
 
-    .invalid-term-warning::before {
+    .invalid-term-warning::before,
+    .invalid-term-no-results::before {
         content: "";
         width: 0;
         height: 0;
@@ -111,7 +113,8 @@
         transform: translateX(-50%);
     }
 
-    .header__search-field.invalid-term + .invalid-term-warning {
+    .header__search-field.invalid-term + .invalid-term-warning,
+    .header__search-field.nothing-found ~ .invalid-term-no-results {
         opacity: 1;
         top: 85px;
     }
@@ -144,7 +147,6 @@
     min-width: 350px;
 
     .header__nav-list {
-        list-style: none;
         width: 100%;
         height: 100%;
         display: flex;

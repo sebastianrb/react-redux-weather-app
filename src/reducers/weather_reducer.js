@@ -3,12 +3,19 @@ import { GET_WEATHER } from "../actions";
 export default function(state = {}, action) {
     switch(action.type) {
         case GET_WEATHER:
-            console.log(action.payload);
+            console.log("Payload: ", action.payload);
             //drill down and get pertinent object
+
+            if(action.payload.data.query.count === 0) {
+                return {
+                    count: 0
+                };
+            }
 
             const returnedData = action.payload.data.query.results.channel;
 
             const formattedObject = {
+                count: action.payload.data.query.count,
                 location: {
                     city: returnedData.location.city,
                     region: returnedData.location.region,

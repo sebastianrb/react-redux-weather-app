@@ -20,5 +20,11 @@ body {
     padding: 0;
     background: radial-gradient(circle, white, rgba(181, 181, 181, 0.3));
     color: $primary-color;
+    letter-spacing: .5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
