@@ -8,6 +8,7 @@ let webpack = require("webpack");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 let OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: [
-                  'file-loader',
+                  'file-loader?name=/images/[name].[ext]',
                   'image-webpack-loader'
                 ]
               }
@@ -69,7 +70,8 @@ module.exports = {
           "process.env": {
              NODE_ENV: JSON.stringify("development")
            }
-        })
+        }),
+        new CleanWebpackPlugin(["./dist"]),
   ],
   //dev server configuration
   devServer: {

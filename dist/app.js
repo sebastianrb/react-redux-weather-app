@@ -13615,7 +13615,7 @@ webpackContext.id = 137;
 /* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "952552f53c29976da3b0e74f1a3a7852.svg";
+module.exports = __webpack_require__.p + "/images/cloud.svg";
 
 /***/ }),
 /* 139 */
@@ -30459,7 +30459,7 @@ exports.default = App;
 /* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "40318b12ca8b01bc264693fb96ce9854.svg";
+module.exports = __webpack_require__.p + "/images/loading-icon.svg";
 
 /***/ }),
 /* 320 */
@@ -31583,103 +31583,103 @@ module.exports = function spread(callback) {
 /* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "71cf64e799a56ab354a2456ddee2d0a2.svg";
+module.exports = __webpack_require__.p + "/images/about.svg";
 
 /***/ }),
 /* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "9c386fd6c27971389b3946a9b427eb8d.svg";
+module.exports = __webpack_require__.p + "/images/clear-night.svg";
 
 /***/ }),
 /* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "ff6835218f0103a6b40086fec548781f.svg";
+module.exports = __webpack_require__.p + "/images/clothing.svg";
 
 /***/ }),
 /* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "b6026aa56f25648164655e9524d0cab5.svg";
+module.exports = __webpack_require__.p + "/images/cloudy-night.svg";
 
 /***/ }),
 /* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "0761f5ecac5003325cebaacc8d835d8f.svg";
+module.exports = __webpack_require__.p + "/images/cloudy.svg";
 
 /***/ }),
 /* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "f9822b895fdbcfc96a50a79672db03d5.svg";
+module.exports = __webpack_require__.p + "/images/foggy.svg";
 
 /***/ }),
 /* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "2202e761891b04fb0765bc5b924c7eed.svg";
+module.exports = __webpack_require__.p + "/images/high-temp.svg";
 
 /***/ }),
 /* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "92fed38a10dad8d4ae09b1e58187c62e.svg";
+module.exports = __webpack_require__.p + "/images/low-temp.svg";
 
 /***/ }),
 /* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "a30eaad4a1fb73313629dcc4bb59e568.svg";
+module.exports = __webpack_require__.p + "/images/not-available.svg";
 
 /***/ }),
 /* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "968cc57258513a929b552ba2be89cb05.svg";
+module.exports = __webpack_require__.p + "/images/partly-cloudy.svg";
 
 /***/ }),
 /* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "a5d61b75e14f18bf1c38d5629821b3a4.svg";
+module.exports = __webpack_require__.p + "/images/rain.svg";
 
 /***/ }),
 /* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "aa9fd1545caf012b4bc7e22b20a7d236.svg";
+module.exports = __webpack_require__.p + "/images/snow.svg";
 
 /***/ }),
 /* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "b134cbaf5164bc683f51c082e5d91d39.svg";
+module.exports = __webpack_require__.p + "/images/sunny.svg";
 
 /***/ }),
 /* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "74f31599f47f9176629c5e4ed5580953.svg";
+module.exports = __webpack_require__.p + "/images/thunder.svg";
 
 /***/ }),
 /* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "3962ab92ed1a1607754a14a8b9812360.svg";
+module.exports = __webpack_require__.p + "/images/weather.svg";
 
 /***/ }),
 /* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "d5a3bd58a2985522bc25566ff092cc5b.svg";
+module.exports = __webpack_require__.p + "/images/windy.svg";
 
 /***/ }),
 /* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "6e86de0df7737ed888635c256c8dc7bc.svg";
+module.exports = __webpack_require__.p + "/images/wintry.svg";
 
 /***/ }),
 /* 357 */
