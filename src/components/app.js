@@ -16,7 +16,8 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        console.log(process.env.PUBLIC_URL);
+        console.log("Location object: ", window.location);
+        console.log("Origin: ", window.location.origin);
     }
 
     //render

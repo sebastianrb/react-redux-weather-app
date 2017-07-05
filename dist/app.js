@@ -2827,7 +2827,7 @@ _reactDom2.default.render(_react2.default.createElement(
   { store: createStoreWithMiddleware(_reducers2.default) },
   _react2.default.createElement(
     _reactRouterDom.BrowserRouter,
-    { history: _reactRouterDom.hashHistory },
+    null,
     _react2.default.createElement(_app2.default, null)
   )
 ), document.getElementById('container'));
@@ -30427,7 +30427,7 @@ var App = function (_Component) {
     _createClass(App, [{
         key: "componentDidMount",
         value: function componentDidMount() {
-            console.log(Object({"NODE_ENV":"development"}).PUBLIC_URL);
+            console.log(window.location);
         }
 
         //render
