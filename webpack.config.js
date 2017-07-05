@@ -59,12 +59,12 @@ module.exports = {
         //minify CSS
         new OptimizeCssAssetsPlugin(),
         //process html files and save to dist/
-        // new HtmlWebpackPlugin({
-        //     // hash: true,
-        //     filename: 'index.html',
-        //     template: __dirname + '/src/index.html',
-        //     showErrors: false
-        // }),
+        new HtmlWebpackPlugin({
+            // hash: true,
+            filename: 'index.html',
+            template: __dirname + '/src/index.html',
+            showErrors: false
+        }),
         new webpack.DefinePlugin({
           "process.env": {
              NODE_ENV: JSON.stringify("development")

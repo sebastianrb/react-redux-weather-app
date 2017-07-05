@@ -2827,7 +2827,7 @@ _reactDom2.default.render(_react2.default.createElement(
   { store: createStoreWithMiddleware(_reducers2.default) },
   _react2.default.createElement(
     _reactRouterDom.BrowserRouter,
-    null,
+    { history: _reactRouterDom.hashHistory },
     _react2.default.createElement(_app2.default, null)
   )
 ), document.getElementById('container'));
