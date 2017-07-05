@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import conditions from "./conditions-object";
 import WeatherDay from "./weather-day";
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CityHeader from "./city-header";
 
 let daysListResult;
 
@@ -33,13 +34,9 @@ class WeatherPanel extends React.Component {
     };
   }
 
-  componentDidMount() {
-   console.log("Component mounting");
-  }
 
   renderDayList() {
      if(this.props.weather.count === 0) {
-      console.log("0 count");
       return daysListResult = this.state.daysPlaceholder.map((dayObject) => {
         return (
             <WeatherDay
@@ -112,7 +109,11 @@ class WeatherPanel extends React.Component {
           finalStyle={{opacity: 1, transform: "scale(1)"}}
       >
         <div className="weather-panel">
-          {this.renderCityHeader()}
+{/*          {this.renderCityHeader()}*/}
+          <CityHeader
+              weather={this.props.weather}
+              headerText="Here's the forecast for"
+          />
           <ul className="weather-panel__day-list">
             <ReactCSSTransitionGroup {...transitionOptions}>
                 {this.renderDayList()}

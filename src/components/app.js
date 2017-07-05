@@ -5,9 +5,9 @@ import { Route, Switch } from "react-router-dom";
 import "../styles/main.scss";
 import Header from "./header";
 import Footer from "./footer";
-import WeatherPanel from "./weather-panel"
-import ClothingPanel from "./clothing-panel"
-import AboutPanel from "./about-panel"
+import WeatherPanel from "./weather-panel";
+import ClothingPanel from "./clothing-panel";
+import AboutPanel from "./about-panel";
 
 export default class App extends Component {
     constructor(props) {

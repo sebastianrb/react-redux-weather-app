@@ -3,9 +3,8 @@ import { GET_WEATHER } from "../actions";
 export default function(state = {}, action) {
     switch(action.type) {
         case GET_WEATHER:
-            console.log("Payload: ", action.payload);
-            //drill down and get pertinent object
 
+            //drill down and get pertinent object
             if(action.payload.data.query.count === 0) {
                 return {
                     count: 0

@@ -30,11 +30,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('css-loader')
+                loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader'])
             },
             {
                 test: /\.(sass|scss)$/,
-                loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+                loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'sass-loader'])
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,

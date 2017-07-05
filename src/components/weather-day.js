@@ -6,15 +6,6 @@ export default class WeatherDay extends React.Component {
   }
 
 
-  componentDidMount() {
-    console.log("Day mounted");
-  }
-
-  componentWillUnmount() {
-    console.log("Day unmounted");
-  }
-
-
   render() {
 
     if(!this.props.dataPresent) {

@@ -11,6 +11,7 @@ class Header extends React.Component {
     super(props);
 
     this.state = {
+        searchInProgress: false,
         test: "oldValue",
         term: "",
         inputValid: true,
@@ -24,10 +25,11 @@ class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.weather.count === 0) {
       this.toggleNothingFound(true);
-      console.log("Nothing found");
+      this.setState({
+        searchInProgress: false
+      });
     } else {
       this.toggleNothingFound(false);
-      console.log("Found");
     }
   }
 
@@ -48,17 +50,27 @@ class Header extends React.Component {
     event.preventDefault();
     // //execute action creator with search term
     const searchTerm = this.state.term;
+    this.setState({
+      searchInProgress: true
+    });
     if(searchTerm && searchTerm.length > 2) {
       this.props.getLastTerm(searchTerm);
-      this.props.weatherSearch(searchTerm);
-      console.log("Last term in weather panel: ", this.state.term )
+      this.props.weatherSearch(searchTerm, () => {
+        console.log("Callback activated");
+        setTimeout(() => {
+          this.setState({
+            searchInProgress: false
+          })
+        }, 1000);
+      });
       this.setState({
         term: "",
         inputValid: true,
       })
     } else {
       this.setState({
-        inputValid: false
+        inputValid: false,
+        searchInProgress: false
       })
     }
   }
@@ -125,7 +137,7 @@ class Header extends React.Component {
               <p className="invalid-term-warning__Caption">No results found. Please try again</p>
             </div>
             <button
-              className="header__submit-button"
+              className={"header__submit-button" + (this.state.searchInProgress ? " loading" : "")}
               onClick={this.onInputSubmit.bind(this)}
               >
               Find Weather
