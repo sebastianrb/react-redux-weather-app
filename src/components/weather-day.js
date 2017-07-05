@@ -49,7 +49,7 @@ export default class WeatherDay extends React.Component {
                  <i className="fa fa-thermometer-empty" aria-hidden="true"></i>  Low of {this.props.low}&deg;
                </p>
                <p className={"weather-panel__day-content-humidity" + (this.props.dayName === "now" ? "" : " not-displayed")}>
-                 <i className="fa fa-tint" aria-hidden="true"></i>  Humidity of {this.props.humidity}
+                 <i className="fa fa-tint" aria-hidden="true"></i>  Humidity of {this.props.humidity}%
                </p>
               </div>
             </li>

@@ -15,7 +15,7 @@
     padding: 10px 35px;
 
     .header__title-container {
-        font-size: 1.5em;
+        font-size: 1.6em;
         letter-spacing: 1px;
         color: #fff;
         width: 30%;
@@ -48,7 +48,8 @@
 
 .header__search-form {
     width: 100%;
-    background: rgba(1,1,56,.3);
+    // background: rgba(1,1,56,.3);
+    background: rgba(4, 4, 158, 0.3);
     height: 80px;
     display: flex;
     flex-flow: row nowrap;
