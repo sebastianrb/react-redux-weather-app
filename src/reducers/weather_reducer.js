@@ -24,6 +24,7 @@ export default function(state = {}, action) {
                     {
                         day: "now",
                         caption: "Now",
+                        currentTemp: returnedData.item.condition.temp,
                         conditionCode: returnedData.item.condition.code,
                         conditionDescripion: returnedData.item.condition.text,
                         high: returnedData.item.forecast[0].high,

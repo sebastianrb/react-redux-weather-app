@@ -7,7 +7,7 @@ const CityHeader = (props) => {
       );
     } else {
       return (
-        null
+        <h3 className="city-name-header">{props.panelName} Panel</h3>
       );
     }
 }

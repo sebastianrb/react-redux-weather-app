@@ -5,6 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from "react-redux";
 import { transitionSetting } from "../index.js";
 import CityHeader from "./city-header";
+import conditions from "./conditions-object";
 
 class ClothingPanel extends React.Component {
 
@@ -12,18 +13,24 @@ class ClothingPanel extends React.Component {
     super(props);
 
     this.state = {
+      day: "",
       searchEntered: false,
+      imageURL: "",
       humidity: "",
       high: "",
-      low: ""
+      low: "",
+      conditions: conditions
     };
   }
 
-  componentDidMount(nextProps) {
+  componentDidMount() {
     if(this.props.weather.count === 0 || !this.props.weather.count) {
+      console.log("Component mounted");
       this.toggleSearchEntered(false);
     } else {
       this.toggleSearchEntered(true);
+      //set current day
+      this.setDay(this.props.weather.days[0]);
     }
   }
 
@@ -32,6 +39,8 @@ class ClothingPanel extends React.Component {
       this.toggleSearchEntered(false);
     } else {
       this.toggleSearchEntered(true);
+      //set current day
+      this.setDay(nextProps.weather.days[0]);
     }
   }
 
@@ -39,6 +48,12 @@ class ClothingPanel extends React.Component {
     //set data on state/template
     this.setState({
       searchEntered: found
+    });
+  }
+
+  setDay(day) {
+    this.setState({
+      day: day
     });
   }
 
@@ -55,22 +70,28 @@ class ClothingPanel extends React.Component {
           <CityHeader
               weather={this.props.weather}
               headerText="Here's what to wear today in"
+              panelName="Clothing"
           />
           <div className={"clothing-panel__content-container"}>
             <div className="clothing-panel__weather-overview">
-              <h3 className="clothing-panel__weather-overview-header">What's it like out?</h3>
+              <h3 className="clothing-panel__weather-overview-header">What's it like out right now?</h3>
               <div className="clothing-panel__weather-overview-temp">
-                <img src={require("../")} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon" />
-                <p className="clothing-panel__weather-overview-temp__description">Temp and humidity description caption</p>
+                <div className="clothing-panel__weather-overview-icons">
+                  <img src={require("../images/thermometer-clothing.svg")} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon" />
+                  <img src={require("../images/humidity-clothing.svg")} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon" />
+                </div>
+                <p className="clothing-panel__weather-overview-temp__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
               </div>
               <div className="clothing-panel__weather-overview-conditions">
-                <img src={require("../")} alt="placeholder+image" className="clothing-panel__weather-overview-conditions__icon" />
-                <p className="clothing-panel__weather-overview-conditions__description">Conditions description caption</p>
+                <div className="clothing-panel__weather-overview-icons">
+                  <img src={(this.state.searchEntered ? require(`../images/${this.state.conditions[this.state.day.conditionCode].image}.svg`)  : require(`../images/partly-cloudy.svg`))} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon clothing-icon-condition" />
+                </div>
+                <p className="clothing-panel__weather-overview-conditions__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
               </div>
             </div>
             <div className="clothing-panel__what-to-wear">
               <h3 className="clothing-panel__what-to-wear__header">What to wear?</h3>
-              <p className="clothing-panel__what-to-wear__caption">What to wear intro caption</p>
+              <p className="clothing-panel__what-to-wear__caption">Here are our general clothing recommendations based on analysis of the current weather conditions:</p>
               <ul className="clothing-panel__what-to-wear__clothing-icons">
                 <li>Shirt</li>
                 <li>Pants</li>
@@ -78,7 +99,7 @@ class ClothingPanel extends React.Component {
               </ul>
             </div>
             <div className={"clothing-panel__cover" + (this.state.searchEntered ? " cover-hidden"  : "")}>
-              <h3>Please search for a city to see recommendations</h3>
+              <h3 className="clothing-panel__cover-caption">Please search for a city to see recommendations</h3>
             </div>
           </div>
         </div>

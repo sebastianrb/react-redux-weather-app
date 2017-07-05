@@ -71,6 +71,7 @@ class WeatherPanel extends React.Component {
                 caption={day.caption}
                 imageURL={this.state.conditions[day.conditionCode].image}
                 conditionDescription={this.state.conditions[day.conditionCode].description}
+                currentTemp={(day.currentTemp ? day.currentTemp : "")}
                 high={day.high}
                 low={day.low}
                 humidity={(day.humidity ? day.humidity : "")}
@@ -81,17 +82,17 @@ class WeatherPanel extends React.Component {
     }
   }
 
-  renderCityHeader() {
-    if(Object.keys(this.props.weather).length > 0 && Object.keys(this.props.weather).length !== 1) {
-      return (
-        <h3 className="city-name-header">Here's the forecast for <span>{this.props.weather.location.city}, {this.props.weather.location.region}, {this.props.weather.location.country}</span></h3>
-      );
-    } else {
-      return (
-        ""
-      );
-    }
-  }
+  // renderCityHeader() {
+  //   if(Object.keys(this.props.weather).length > 0 && Object.keys(this.props.weather).length !== 1) {
+  //     return (
+  //       <h3 className="city-name-header">Here's the forecast for <span>{this.props.weather.location.city}, {this.props.weather.location.region}, {this.props.weather.location.country}</span></h3>
+  //     );
+  //   } else {
+  //     return (
+  //       ""
+  //     );
+  //   }
+  // }
 
   render() {
 
@@ -113,6 +114,7 @@ class WeatherPanel extends React.Component {
           <CityHeader
               weather={this.props.weather}
               headerText="Here's the forecast for"
+              panelName="Weather"
           />
           <ul className="weather-panel__day-list">
             <ReactCSSTransitionGroup {...transitionOptions}>

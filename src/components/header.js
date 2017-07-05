@@ -61,7 +61,7 @@ class Header extends React.Component {
           this.setState({
             searchInProgress: false
           })
-        }, 1000);
+        }, 900);
       });
       this.setState({
         term: "",

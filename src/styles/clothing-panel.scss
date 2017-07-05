@@ -29,18 +29,78 @@
     justify-content: center;
     align-items: center;
     // transition: opacity .6s .1s, zIndex .4s .2s, background-color .3s 0s;
-    transition: all .5s;
+    transition: transform .5s 0s, opacity .3s .1s, zIndex .5s 0s, left .7s;
     z-index: 10;
-    background: radial-gradient(#f7f6f6, #e0dfdf);
+    background: radial-gradient(#f7f6f6, rgb(236, 235, 235));
     color: $primary-color;
     border-radius: 4px;
     box-shadow: 0 3px 10px 0 rgba(128, 128, 128, 0.30);
 
+    h3.clothing-panel__cover-caption {
+        font-size: 1.2em;
+    }
+
     &.cover-hidden {
         opacity: 0;
-        transform: scale(.4);
-        // background-color: transparent;
+        // transform: scale(.4);
+        left: -150%;
         z-index: 0;
     }
 }
+
+//weather overview styles
+
+.clothing-panel__weather-overview-temp,
+.clothing-panel__weather-overview-conditions {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 50px;
+}
+
+.clothing-panel__weather-overview-icons {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 24%;
+    justify-content: center;
+    padding: 0 15px;
+    background: rgba(211, 211, 211, 0.6);
+    box-shadow: 2px 3px 4px 0 rgba(128, 128, 128, 0.4);
+    min-width: 140px;
+    height: 120px;
+}
+
+.clothing-panel__weather-overview-temp__icon {
+    flex: 0 1 auto;
+    width: 50%;
+    height: 100%;
+}
+
+.clothing-icon-condition {
+
+}
+
+.clothing-panel__weather-overview-temp__description,
+.clothing-panel__weather-overview-conditions__description {
+    margin-left: 50px;
+    text-align: left;
+}
+
+.clothing-panel__what-to-wear {
+    margin-top: 50px;
+}
+
+.clothing-panel__what-to-wear__clothing-icons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.clothing-panel__what-to-wear__caption {
+    margin: 40px 0;
+}
+
+
 
