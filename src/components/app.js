@@ -15,6 +15,10 @@ export default class App extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        console.log(process.env.PUBLIC_URL);
+    }
+
     //render
     render() {
         return (
@@ -22,7 +26,6 @@ export default class App extends Component {
                 <Header />
 
                 <div className="app-content">
-
                     <Switch>
                         <Route path="/clothing" component={ClothingPanel}></Route>
                         <Route path="/about" component={AboutPanel}></Route>

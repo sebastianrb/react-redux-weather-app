@@ -30424,10 +30424,15 @@ var App = function (_Component) {
         return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
     }
 
-    //render
-
-
     _createClass(App, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            console.log(Object({"NODE_ENV":"development"}).PUBLIC_URL);
+        }
+
+        //render
+
+    }, {
         key: "render",
         value: function render() {
             return _react2.default.createElement(
