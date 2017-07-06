@@ -33968,8 +33968,6 @@ var _clothingObject2 = _interopRequireDefault(_clothingObject);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -33998,7 +33996,7 @@ var ClothingPanel = function (_React$Component) {
       weatherKeywords: [],
       conditions: _conditionsObject2.default,
       clothingObject: _clothingObject2.default,
-      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boot", "shorts", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket-men", "jacket-women", "sunglasses", "shoe1", "shoe2", "flip-flops", "dress"]
+      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket", "sunglasses", "shoe1", "flip-flops", "dress"]
     };
     return _this;
   }
@@ -34040,9 +34038,9 @@ var ClothingPanel = function (_React$Component) {
         weatherKeywords.push("hot");
       } else if (weather.days[0].currentTemp > 72) {
         weatherKeywords.push("warm");
-      } else if (weather.days[0].currentTemp > 58) {
+      } else if (weather.days[0].currentTemp > 55) {
         weatherKeywords.push("fair");
-      } else if (weather.days[0].currentTemp > 45) {
+      } else if (weather.days[0].currentTemp > 42) {
         weatherKeywords.push("cold");
       } else {
         weatherKeywords.push("very cold");
@@ -34092,30 +34090,23 @@ var ClothingPanel = function (_React$Component) {
       if (Object.keys(this.props.hourlyWeather).length > 0 && this.state.day !== "") {
         var iconCode = void 0;
         if (time === "Now") {
-          console.log("Running icon function - Now");
           return this.state.conditions[this.state.day.conditionCode].image;
         } else if (time === "In Three Hours") {
-          console.log("Running icon function - Three Hours");
           iconCode = this.props.hourlyWeather["3Hours"].weather[0].icon;
-          console.log("Icon code 3: ", iconCode);
           for (var code in this.state.conditions) {
             var thisObject = this.state.conditions[code];
             if (thisObject.hasOwnProperty("openWeatherMapCodes")) {
               if (thisObject.openWeatherMapCodes.indexOf(iconCode) !== -1) {
-                console.log("Resolved image: ", thisObject.image);
                 return thisObject.image;
               }
             }
           }
         } else {
-          console.log("Running icon function - Six Hours");
           iconCode = this.props.hourlyWeather["6Hours"].weather[0].icon;
-          console.log("Icon code 6: ", iconCode);
           for (var code in this.state.conditions) {
             var _thisObject = this.state.conditions[code];
             if (_thisObject.hasOwnProperty("openWeatherMapCodes")) {
               if (_thisObject.openWeatherMapCodes.indexOf(iconCode) !== -1) {
-                console.log("Resolved image: ", _thisObject.image);
                 return _thisObject.image;
               }
             }
@@ -34185,7 +34176,6 @@ var ClothingPanel = function (_React$Component) {
     value: function getHeatIndex(tempInput, humidityInput) {
       var temperature = parseInt(tempInput);
       var humidity = parseInt(humidityInput);
-      console.log("Temp: ", temperature);
       if (this.state.day.currentTemp && this.state.day.humidity) {
         return Math.round(_heatIndex2.default.heatIndex({ temperature: temperature, humidity: humidity, fahrenheit: true }));
       } else {
@@ -34221,11 +34211,13 @@ var ClothingPanel = function (_React$Component) {
         return null;
       } else {
         return this.state.clothingItems.map(function (clothingItem) {
-          return _react2.default.createElement(_clothingConditionsIcon2.default, _defineProperty({
+          return _react2.default.createElement(_clothingIcon2.default, {
             key: clothingItem,
+            name: clothingItem,
             clothingObject: _this3.state.clothingObject,
-            clothingItems: _this3.state.clothingItems
-          }, 'clothingItems', _this3.state.clothingItems));
+            clothingItems: _this3.state.clothingItems,
+            weatherKeywords: _this3.state.weatherKeywords
+          });
         });
       }
     }
@@ -34323,21 +34315,7 @@ var ClothingPanel = function (_React$Component) {
               _react2.default.createElement(
                 'ul',
                 { className: 'clothing-panel__what-to-wear__clothing-icons' },
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  'Shirt'
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  'Pants'
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  'Shoes'
-                )
+                this.renderClothingList()
               )
             ),
             _react2.default.createElement(
@@ -34493,7 +34471,7 @@ exports.default = ClothingConditionIcon;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _react = __webpack_require__(2);
@@ -34503,20 +34481,59 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ClothingIcon = function ClothingIcon(props) {
-  return _react2.default.createElement(
-    "li",
-    null,
-    _react2.default.createElement(
-      "div",
-      { className: "clothing-panel__clothing-icon-container" },
-      _react2.default.createElement("img", { src: props.icon ? __webpack_require__(48)("./" + props.icon + ".svg") : __webpack_require__(77), alt: "placeholder+image", className: "clothing-panel__clothing-icon-image" }),
-      _react2.default.createElement(
-        "p",
-        { className: "clothing-panel__clothing-icon-caption" },
-        props.weatherCaption
-      )
-    )
-  );
+    var clothingObject = props.clothingObject[props.name];
+    var keywordCheck = true;
+    var i = void 0,
+        j = void 0;
+    var counter = 0;
+
+    var iconURL = props.clothingObject[props.name].imageURL;
+
+    //loop through weather keywords in component
+    //for each one, check to see if it's in current clothing object and that it isn't in anti keywords array
+    //if that checks out, render component
+
+    //keyword check
+    for (i = 0; i < props.weatherKeywords.length; i++) {
+        if (clothingObject.keywords.indexOf(props.weatherKeywords[i]) !== -1) {
+            counter++;
+        }
+    }
+
+    //anti keyword check
+    if (counter > 0) {
+        //if the a keywords matches, check anti keywords
+        for (j = 0; j < props.weatherKeywords.length; j++) {
+            if (clothingObject.hasOwnProperty("antiKeyWords")) {
+                if (clothingObject.antiKeyWords.indexOf(props.weatherKeywords[j]) !== -1) {
+                    console.log("Caught clothing: ", clothingObject);
+                    keywordCheck = false;
+                    break;
+                }
+            }
+        }
+    } else {
+        keywordCheck = false;
+    }
+
+    if (keywordCheck) {
+        return _react2.default.createElement(
+            "li",
+            null,
+            _react2.default.createElement(
+                "div",
+                { className: "clothing-panel__clothing-icon-container" },
+                _react2.default.createElement("img", { src: iconURL ? __webpack_require__(48)("./" + iconURL + ".svg") : __webpack_require__(77), alt: "placeholder+image", className: "clothing-panel__clothing-icon-image" }),
+                _react2.default.createElement(
+                    "p",
+                    { className: "clothing-panel__clothing-icon-caption" },
+                    clothingObject.caption
+                )
+            )
+        );
+    } else {
+        return null;
+    }
 };
 
 exports.default = ClothingIcon;
@@ -34563,6 +34580,7 @@ var clothing = {
         caption: "sleeveless shirts"
     },
     "jeans": {
+        antiKeyWords: ["hot", "warm"],
         keywords: ["fair", "cold", "rain", "snow", "very cold", "dry"],
         imageURL: "jeans",
         caption: "long pants"
@@ -34572,32 +34590,21 @@ var clothing = {
         imageURL: "shirt-long-sleeve",
         caption: "long-sleeved shirts"
     },
-    "jacket-men": {
+    "jacket": {
         keywords: ["cold", "very cold"],
         imageURL: "jacket-men",
-        caption: "jackets and sweaters"
-    },
-    "jacket-women": {
-        keywords: ["cold", "very cold"],
-        imageURL: "jacket-women",
         caption: "jackets and sweaters"
     },
     "sunglasses": {
         antiKeyWords: ["rain", "snow"],
         keywords: ["warm", "hot"],
-        imageURL: "jacket-women",
+        imageURL: "sunglasses",
         caption: "sunglasses"
     },
     "shoe1": {
         antiKeyWords: ["rain", "snow"],
         keywords: ["fair", "cold", "very cold"],
         imageURL: "shoe1",
-        caption: "shoes"
-    },
-    "shoe2": {
-        antiKeyWords: ["rain", "snow"],
-        keywords: ["fair", "cold", "very cold"],
-        imageURL: "shoe2",
         caption: "shoes"
     },
     "flip-flops": {

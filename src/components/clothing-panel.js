@@ -30,7 +30,7 @@ class ClothingPanel extends React.Component {
       weatherKeywords: [],
       conditions: conditions,
       clothingObject: clothing,
-      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket-men", "jacket-women", "sunglasses", "shoe1", "shoe2", "flip-flops", "dress"]
+      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket", "sunglasses", "shoe1", "flip-flops", "dress"]
     };
   }
 

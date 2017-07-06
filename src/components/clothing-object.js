@@ -40,14 +40,9 @@ const clothing = {
         imageURL: "shirt-long-sleeve",
         caption: "long-sleeved shirts"
     },
-    "jacket-men": {
+    "jacket": {
         keywords: ["cold", "very cold"],
         imageURL: "jacket-men",
-        caption: "jackets and sweaters"
-    },
-    "jacket-women": {
-        keywords: ["cold", "very cold"],
-        imageURL: "jacket-women",
         caption: "jackets and sweaters"
     },
     "sunglasses": {
@@ -60,12 +55,6 @@ const clothing = {
         antiKeyWords: ["rain", "snow"],
         keywords: ["fair", "cold", "very cold"],
         imageURL: "shoe1",
-        caption: "shoes"
-    },
-    "shoe2": {
-        antiKeyWords: ["rain", "snow"],
-        keywords: ["fair", "cold", "very cold"],
-        imageURL: "shoe2",
         caption: "shoes"
     },
     "flip-flops": {
