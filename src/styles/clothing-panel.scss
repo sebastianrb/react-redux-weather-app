@@ -75,22 +75,21 @@
     background: rgba(211, 211, 211, 0.6);
     box-shadow: 2px 3px 4px 0 rgba(128, 128, 128, 0.4);
     min-width: 140px;
-    height: 130px;
+    height: 150px;
     margin: 0 auto;
 }
 
 .clothing-panel__weather-overview-icons-conditions {
-    width: 70%;
-    height: 150px;
+    width: 90%;
 }
 
 .clothing-panel__weather-overview-temp__icon {
     flex: 0 1 auto;
-    width: 100%;
+    width: 85%;
 }
 
 .clothing-icon-condition {
-    width: 58%;
+    width: 47%;
 }
 
 .clothing-panel__weather-overview-temp__description {
@@ -117,19 +116,26 @@
     li {
         width: 20%;
         margin: 20px;
+        height: 160px;
 
         .clothing-panel__clothing-icon-container {
             background: rgb(255, 255, 255);
             padding: 15px;
             box-shadow: 2px 3px 4px 0 hsla(0,0%,50%,.4);
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
 
         img.clothing-panel__clothing-icon-image {
-            width: 45%;
+            width: 40%;
         }
 
         p.clothing-panel__clothing-icon-caption {
-            margin: 5px;
+            margin: 10px auto 5px;
+            font-size: .9em;
         }
     }
 }
@@ -140,7 +146,7 @@
 
 .clothing-panel__weather-overview-temp__icon-caption {
     margin: 10px 0 0;
-    font-size: .8em;
+    font-size: .85em;
 }
 
 .clothing-panel__weather-overview-temp__icon-container {
@@ -155,7 +161,7 @@
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     li {
