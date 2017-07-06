@@ -34284,7 +34284,7 @@ var ClothingPanel = function (_React$Component) {
                   'p',
                   { className: 'clothing-panel__weather-overview-temp__description' },
                   this.generateTemperatureString(this.state.day.currentTemp, this.state.day.humidity),
-                  ' The heat index, a metric expressing the level of comfort felt as a result of the combined effects of the temperature and humidity of the air, currently reads ',
+                  ' The heat index, a metric representing the level of comfort felt as a result of temperature and humidity, currently reads ',
                   this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity),
                   ' degrees.'
                 )

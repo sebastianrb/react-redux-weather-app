@@ -4,7 +4,8 @@
   "description": "A weather forecasting app built with React and Redux",
   "main": "index.js",
   "scripts": {
-    "start": "webpack & webpack-dev-server --open"
+    "start": "webpack & webpack-dev-server --open",
+    "build": "webpack"
   },
   "author": "Sebastian",
   "license": "ISC",

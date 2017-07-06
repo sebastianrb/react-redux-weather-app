@@ -274,7 +274,7 @@ class ClothingPanel extends React.Component {
                     <p className="clothing-panel__weather-overview-temp__icon-caption">{this.state.day.humidity}%</p>
                   </div>
                 </div>
-                <p className="clothing-panel__weather-overview-temp__description">{this.generateTemperatureString(this.state.day.currentTemp, this.state.day.humidity)} The heat index, a metric expressing the level of comfort felt as a result of the combined effects of the temperature and humidity of the air, currently reads {this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity)} degrees.</p>
+                <p className="clothing-panel__weather-overview-temp__description">{this.generateTemperatureString(this.state.day.currentTemp, this.state.day.humidity)} The heat index, a metric representing the level of comfort felt as a result of temperature and humidity, currently reads {this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity)} degrees.</p>
               </div>
               <div className="clothing-panel__weather-overview-conditions">
                 <ul className="clothing-panel__weather-overview-conditions-list">
