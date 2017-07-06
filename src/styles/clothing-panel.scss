@@ -38,6 +38,8 @@
 
     h3.clothing-panel__cover-caption {
         font-size: 1.2em;
+        position: relative;
+        top: -40px;
     }
 
     &.cover-hidden {
@@ -64,27 +66,27 @@
     flex-flow: row nowrap;
     width: 24%;
     justify-content: center;
-    padding: 0 15px;
+    padding: 15px 20px;
     background: rgba(211, 211, 211, 0.6);
     box-shadow: 2px 3px 4px 0 rgba(128, 128, 128, 0.4);
     min-width: 140px;
-    height: 120px;
+    height: 130px;
 }
 
 .clothing-panel__weather-overview-temp__icon {
     flex: 0 1 auto;
-    width: 50%;
-    height: 100%;
+    width: 100%;
 }
 
 .clothing-icon-condition {
-
+    width: 58%;
 }
 
 .clothing-panel__weather-overview-temp__description,
 .clothing-panel__weather-overview-conditions__description {
     margin-left: 50px;
     text-align: left;
+    line-height: 30px;
 }
 
 .clothing-panel__what-to-wear {
@@ -102,5 +104,17 @@
     margin: 40px 0;
 }
 
+.clothing-panel__weather-overview-temp__icon-caption {
+    margin: 10px 0 0;
+    font-size: .8em;
+}
+
+.clothing-panel__weather-overview-temp__icon-container {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
 
 

@@ -4242,7 +4242,7 @@ var _app = __webpack_require__(322);
 
 var _app2 = _interopRequireDefault(_app);
 
-var _reducers = __webpack_require__(412);
+var _reducers = __webpack_require__(413);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -30638,7 +30638,7 @@ var _clothingPanel = __webpack_require__(410);
 
 var _clothingPanel2 = _interopRequireDefault(_clothingPanel);
 
-var _aboutPanel = __webpack_require__(411);
+var _aboutPanel = __webpack_require__(412);
 
 var _aboutPanel2 = _interopRequireDefault(_aboutPanel);
 
@@ -33793,6 +33793,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _heatIndex = __webpack_require__(411);
+
+var _heatIndex2 = _interopRequireDefault(_heatIndex);
+
 var _reactEasyTransition = __webpack_require__(77);
 
 var _reactEasyTransition2 = _interopRequireDefault(_reactEasyTransition);
@@ -33836,8 +33840,8 @@ var ClothingPanel = function (_React$Component) {
       searchEntered: false,
       imageURL: "",
       humidity: "",
-      high: "",
-      low: "",
+      currentTemp: "",
+      hotOrCold: "",
       conditions: _conditionsObject2.default
     };
     return _this;
@@ -33866,6 +33870,9 @@ var ClothingPanel = function (_React$Component) {
         this.setDay(nextProps.weather.days[0]);
       }
     }
+
+    //refresh state
+
   }, {
     key: 'toggleSearchEntered',
     value: function toggleSearchEntered(found) {
@@ -33881,6 +33888,34 @@ var ClothingPanel = function (_React$Component) {
         day: day
       });
     }
+
+    //generate text
+
+  }, {
+    key: 'generateTemperatureString',
+    value: function generateTemperatureString() {
+      return;
+    }
+
+    // calculateHeatIndex(temperatureInput, humidityInput) {
+    //   let temperature = parseInt(temperatureInput);
+    //   let humidity = parseInt(humidityInput);
+    //   let heatIndex;
+    //   if(temperature > 80) {
+    //     heatIndex = Math.round(
+    //       -42.379 + (2.04901523 * temperature) + (10.14333127 * humidity) + (-0.22475541 * temperature * humidity) + (-.00683783 * temperature * temperature) + (-.05481717 * humidity * humidity) + (.00122874 * temperature * temperature * humidity) + (.00085282 * temperature * humidity * humidity) + (-.00000199 * temperature * temperature * humidity * humidity)
+    //       );
+    //   } else {
+    //     heatIndex = Math.round(.5 * (temperature + 61 + ((temperature - 68) * 1.2) + (humidity * .094)));
+    //   }
+
+    //   console.log("Heat index: ", heatIndex);
+
+    //   return (
+    //     <span className="heat-index-span">{heatIndex}</span>
+    //   );
+    // }
+
   }, {
     key: 'render',
     value: function render() {
@@ -33917,13 +33952,35 @@ var ClothingPanel = function (_React$Component) {
                 _react2.default.createElement(
                   'div',
                   { className: 'clothing-panel__weather-overview-icons' },
-                  _react2.default.createElement('img', { src: __webpack_require__(141), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon' }),
-                  _react2.default.createElement('img', { src: __webpack_require__(139), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon' })
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'clothing-panel__weather-overview-temp__icon-container' },
+                    _react2.default.createElement('img', { src: __webpack_require__(141), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon' }),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'clothing-panel__weather-overview-temp__icon-caption' },
+                      this.state.day.currentTemp,
+                      '\xB0'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'clothing-panel__weather-overview-temp__icon-container' },
+                    _react2.default.createElement('img', { src: __webpack_require__(139), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon' }),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'clothing-panel__weather-overview-temp__icon-caption' },
+                      this.state.day.humidity,
+                      '%'
+                    )
+                  )
                 ),
                 _react2.default.createElement(
                   'p',
                   { className: 'clothing-panel__weather-overview-temp__description' },
-                  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+                  'The heat index will be ',
+                  _heatIndex2.default.heatIndex({ temperature: 87, humidity: 65, fahrenheit: true }),
+                  '. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
                 )
               ),
               _react2.default.createElement(
@@ -33932,7 +33989,16 @@ var ClothingPanel = function (_React$Component) {
                 _react2.default.createElement(
                   'div',
                   { className: 'clothing-panel__weather-overview-icons' },
-                  _react2.default.createElement('img', { src: this.state.searchEntered ? __webpack_require__(76)("./" + this.state.conditions[this.state.day.conditionCode].image + '.svg') : __webpack_require__(140), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon clothing-icon-condition' })
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'clothing-panel__weather-overview-temp__icon-container' },
+                    _react2.default.createElement('img', { src: this.state.searchEntered ? __webpack_require__(76)("./" + this.state.conditions[this.state.day.conditionCode].image + '.svg') : __webpack_require__(140), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon clothing-icon-condition' }),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'clothing-panel__weather-overview-temp__icon-caption' },
+                      this.state.day.conditionDescription
+                    )
+                  )
                 ),
                 _react2.default.createElement(
                   'p',
@@ -34004,6 +34070,77 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(ClothingPanel);
 
 /***/ }),
 /* 411 */
+/***/ (function(module, exports) {
+
+var HI = {
+    // utility functions
+    toFahrenheit: function (celsius) {
+        return (9 * celsius / 5 + 32);
+    },
+    toCelsius: function (fehrenheit) {
+        return (5 * (fehrenheit - 32) / 9);
+    },
+    getType: function (input) {
+        return ({}.toString.call(input).slice(8, -1));
+    },
+
+    // definition http://www.hpc.ncep.noaa.gov/html/heatindex_equation.shtml
+    // input = {
+    //     temperature: Number,  required
+    //     humidity   : Number,  required
+    //     fahrenheit : Boolean, optional
+    // }
+    heatIndex: function (input) {
+        if (arguments.length === 0) {
+            throw new Error("Invalid Argument. Need at least one.");
+        }
+        if (HI.getType(input) !== 'Object') {
+            throw new TypeError("Invalid Argument. Expecting 'Object'");
+        }
+        if (HI.getType(input.temperature) !== 'Number' ||
+            HI.getType(input.humidity) !== 'Number') {
+            throw new TypeError("Invalid Argument. temperature and humidity must be 'Number'");
+        }
+
+        var t = HI.toFahrenheit(input.temperature) || 0,
+            h = input.humidity || 0;
+
+        if (input.fahrenheit) {
+            t = input.temperature;
+        }
+
+        // Steadman's result
+        var heatIndex = 0.5 * (t + 61 + (t - 68) * 1.2 + h * 0.094);
+
+        // regression equation of Rothfusz is appropriate
+        if (t >= 80) {
+            var heatIndexBase = (-42.379                      +
+                                   2.04901523 * t             +
+                                  10.14333127         * h     +
+                                  -0.22475541 * t     * h     +
+                                  -0.00683783 * t * t         +
+                                  -0.05481717         * h * h +
+                                   0.00122874 * t * t * h     +
+                                   0.00085282 * t     * h * h +
+                                  -0.00000199 * t * t * h * h);
+            // adjustment
+            if (h < 13 && t <= 112) {
+                heatIndex = heatIndexBase - (13 - h) / 4 * Math.sqrt((17 - Math.abs(t - 95)) / 17);
+            } else if (h > 85 && t <= 87) {
+                heatIndex = heatIndexBase + ((h - 85) / 10) * ((87 - t) / 5)
+            } else {
+                heatIndex = heatIndexBase;
+            }
+        }
+        return (input.fahrenheit ? heatIndex : HI.toCelsius(heatIndex));
+    }
+};
+
+module.exports = HI;
+
+
+/***/ }),
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34052,7 +34189,7 @@ var AboutPanel = function AboutPanel(props) {
             _react2.default.createElement(
                 "p",
                 { className: "about-panel__description" },
-                "The pagination of the application is implemented using React Routing."
+                "This is a single page application; the sectional partitioning of the site is implemented using React Routing."
             )
         )
     );
@@ -34061,7 +34198,7 @@ var AboutPanel = function AboutPanel(props) {
 exports.default = AboutPanel;
 
 /***/ }),
-/* 412 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34071,11 +34208,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _weather_reducer = __webpack_require__(413);
+var _weather_reducer = __webpack_require__(414);
 
 var _weather_reducer2 = _interopRequireDefault(_weather_reducer);
 
-var _lastTerm_reducer = __webpack_require__(414);
+var _lastTerm_reducer = __webpack_require__(415);
 
 var _lastTerm_reducer2 = _interopRequireDefault(_lastTerm_reducer);
 
@@ -34090,7 +34227,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 413 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34128,7 +34265,7 @@ exports.default = function () {
                     caption: "Now",
                     currentTemp: returnedData.item.condition.temp,
                     conditionCode: returnedData.item.condition.code,
-                    conditionDescripion: returnedData.item.condition.text,
+                    conditionDescription: returnedData.item.condition.text,
                     high: returnedData.item.forecast[0].high,
                     low: returnedData.item.forecast[0].low,
                     humidity: returnedData.atmosphere.humidity
@@ -34159,7 +34296,7 @@ exports.default = function () {
 var _actions = __webpack_require__(74);
 
 /***/ }),
-/* 414 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

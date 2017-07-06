@@ -26,7 +26,7 @@ export default function(state = {}, action) {
                         caption: "Now",
                         currentTemp: returnedData.item.condition.temp,
                         conditionCode: returnedData.item.condition.code,
-                        conditionDescripion: returnedData.item.condition.text,
+                        conditionDescription: returnedData.item.condition.text,
                         high: returnedData.item.forecast[0].high,
                         low: returnedData.item.forecast[0].low,
                         humidity: returnedData.atmosphere.humidity

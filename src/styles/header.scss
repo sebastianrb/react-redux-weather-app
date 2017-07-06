@@ -191,6 +191,7 @@
 
         &.selected {
             background: transparentize($primary-color, .75);
+            pointer-events: none;
         }
     }
 

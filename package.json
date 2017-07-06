@@ -21,6 +21,7 @@
     "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "heat-index": "0.0.3",
     "html-webpack-plugin": "^2.29.0",
     "image-webpack-loader": "^3.3.1",
     "node-sass": "^4.5.3",

@@ -15,7 +15,7 @@ const AboutPanel = (props) => {
             <div className="about-panel">
                 <h2 className="about-panel__main-heading">About the Weather App</h2>
                 <p className="about-panel__description">This weather application utilizes the React.js UI framework in conjunction with the Redux state container. The application connects to the Yahoo Weather API to collect weather data and saves that information to a back-end Redux data store. The various components are then built out dynamically based on the city and various weather characteristics such as temperature and conditions.</p>
-                <p className="about-panel__description">The pagination of the application is implemented using React Routing.</p>
+                <p className="about-panel__description">This is a single page application; the sectional partitioning of the site is implemented using React Routing.</p>
             </div>
         </EasyTransition>
     );
