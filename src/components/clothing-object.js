@@ -30,6 +30,7 @@ const clothing = {
         caption: "sleeveless shirts"
     },
     "jeans": {
+        antiKeyWords: ["hot", "warm"],
         keywords: ["fair", "cold", "rain", "snow", "very cold", "dry"],
         imageURL: "jeans",
         caption: "long pants"
@@ -52,7 +53,7 @@ const clothing = {
     "sunglasses": {
         antiKeyWords: ["rain", "snow"],
         keywords: ["warm", "hot"],
-        imageURL: "jacket-women",
+        imageURL: "sunglasses",
         caption: "sunglasses"
     },
     "shoe1": {

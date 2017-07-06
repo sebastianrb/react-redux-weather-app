@@ -112,6 +112,26 @@
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+    margin-top: 50px;
+
+    li {
+        width: 20%;
+        margin: 20px;
+
+        .clothing-panel__clothing-icon-container {
+            background: rgb(255, 255, 255);
+            padding: 15px;
+            box-shadow: 2px 3px 4px 0 hsla(0,0%,50%,.4);
+        }
+
+        img.clothing-panel__clothing-icon-image {
+            width: 45%;
+        }
+
+        p.clothing-panel__clothing-icon-caption {
+            margin: 5px;
+        }
+    }
 }
 
 .clothing-panel__what-to-wear__caption {

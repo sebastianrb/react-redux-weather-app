@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { transitionSetting } from "../index.js";
 import CityHeader from "./city-header";
 import ClothingConditionIcon from "./clothing-conditions-icon";
-import ClothingnIcon from "./clothing-icon";
+import ClothingIcon from "./clothing-icon";
 import conditions from "./conditions-object";
 import clothing from "./clothing-object";
 
@@ -30,7 +30,7 @@ class ClothingPanel extends React.Component {
       weatherKeywords: [],
       conditions: conditions,
       clothingObject: clothing,
-      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boot", "shorts", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket-men", "jacket-women", "sunglasses", "shoe1", "shoe2", "flip-flops", "dress"]
+      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket-men", "jacket-women", "sunglasses", "shoe1", "shoe2", "flip-flops", "dress"]
     };
   }
 
@@ -67,9 +67,9 @@ class ClothingPanel extends React.Component {
       weatherKeywords.push("hot");
     } else if(weather.days[0].currentTemp > 72) {
       weatherKeywords.push("warm");
-    } else if(weather.days[0].currentTemp > 58) {
+    } else if(weather.days[0].currentTemp > 55) {
       weatherKeywords.push("fair");
-    } else if(weather.days[0].currentTemp > 45) {
+    } else if(weather.days[0].currentTemp > 42) {
       weatherKeywords.push("cold");
     } else {
       weatherKeywords.push("very cold");
@@ -114,30 +114,23 @@ class ClothingPanel extends React.Component {
     if(Object.keys(this.props.hourlyWeather).length > 0 && this.state.day !== "") {
       let iconCode;
       if(time === "Now") {
-        console.log("Running icon function - Now");
         return this.state.conditions[this.state.day.conditionCode].image;
       } else if(time === "In Three Hours") {
-        console.log("Running icon function - Three Hours");
         iconCode = this.props.hourlyWeather["3Hours"].weather[0].icon;
-        console.log("Icon code 3: ", iconCode);
         for(var code in this.state.conditions) {
             let thisObject = this.state.conditions[code];
             if(thisObject.hasOwnProperty("openWeatherMapCodes")) {
               if(thisObject.openWeatherMapCodes.indexOf(iconCode) !== -1) {
-                console.log("Resolved image: ", thisObject.image);
                 return thisObject.image;
               }
             }
         }
       } else {
-        console.log("Running icon function - Six Hours");
         iconCode = this.props.hourlyWeather["6Hours"].weather[0].icon;
-        console.log("Icon code 6: ", iconCode);
         for(var code in this.state.conditions) {
           let thisObject = this.state.conditions[code];
           if(thisObject.hasOwnProperty("openWeatherMapCodes")) {
             if(thisObject.openWeatherMapCodes.indexOf(iconCode) !== -1) {
-              console.log("Resolved image: ", thisObject.image);
               return thisObject.image;
             }
           }
@@ -204,7 +197,6 @@ class ClothingPanel extends React.Component {
   getHeatIndex(tempInput, humidityInput) {
     let temperature = parseInt(tempInput);
     let humidity = parseInt(humidityInput);
-    console.log("Temp: ", temperature);
     if(this.state.day.currentTemp && this.state.day.humidity) {
       return Math.round(HI.heatIndex({temperature: temperature, humidity: humidity, fahrenheit: true}));
     } else {
@@ -239,11 +231,12 @@ class ClothingPanel extends React.Component {
     } else {
       return this.state.clothingItems.map((clothingItem) => {
         return (
-          <ClothingConditionIcon
+          <ClothingIcon
             key={clothingItem}
+            name={clothingItem}
             clothingObject={this.state.clothingObject}
             clothingItems={this.state.clothingItems}
-            clothingItems={this.state.clothingItems}
+            weatherKeywords={this.state.weatherKeywords}
           />
         );
       });
@@ -296,9 +289,7 @@ class ClothingPanel extends React.Component {
               <h3 className="clothing-panel__what-to-wear__header">What to wear?</h3>
               <p className="clothing-panel__what-to-wear__caption">Here are our general clothing recommendations based on analysis of the current weather conditions:</p>
               <ul className="clothing-panel__what-to-wear__clothing-icons">
-                <li>Shirt</li>
-                <li>Pants</li>
-                <li>Shoes</li>
+                {this.renderClothingList()}
               </ul>
             </div>
             <div className={"clothing-panel__cover" + (this.state.searchEntered ? " cover-hidden"  : "")}>

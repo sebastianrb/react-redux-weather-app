@@ -34660,7 +34660,7 @@ var AboutPanel = function AboutPanel(props) {
             _react2.default.createElement(
                 "p",
                 { className: "about-panel__description" },
-                "This weather application utilizes the React.js UI framework in conjunction with the Redux state container. The application connects to the Yahoo Weather API to collect weather data and saves that information to a back-end Redux data store. The various components are then built out dynamically based on the city and various weather characteristics such as temperature and conditions."
+                "This weather application utilizes the React.js UI framework in conjunction with the Redux state container. The application connects to the Yahoo Weather API and Open Weather Map API to collect weather data and saves that information to a back-end Redux data store. The various components are then built out dynamically based on the city and various weather characteristics such as temperature and conditions."
             ),
             _react2.default.createElement(
                 "p",
