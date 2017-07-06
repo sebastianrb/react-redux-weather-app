@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { weatherSearch } from "../actions/";
 import { getLastTerm } from "../actions/";
+import { getHourlyWeather } from "../actions/";
 
 class Header extends React.Component {
 
@@ -60,7 +61,10 @@ class Header extends React.Component {
         setTimeout(() => {
           this.setState({
             searchInProgress: false
-          })
+          });
+          console.log("Async timing test: ", this.props.weather);
+          //open weather map callback here?
+          this.props.getHourlyWeather(this.props.weather.location.lat, this.props.weather.location.lon);
         }, 900);
       });
       this.setState({
@@ -160,7 +164,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ weatherSearch: weatherSearch, getLastTerm: getLastTerm }, dispatch);
+    return bindActionCreators({
+      weatherSearch: weatherSearch,
+      getLastTerm: getLastTerm,
+      getHourlyWeather: getHourlyWeather
+    }, dispatch);
 }
 
 

@@ -29,7 +29,7 @@
     justify-content: center;
     align-items: center;
     // transition: opacity .6s .1s, zIndex .4s .2s, background-color .3s 0s;
-    transition: transform .5s 0s, opacity .3s .1s, zIndex .5s 0s, left .7s;
+    transition: transform .5s 0s, opacity .3s .5s, zIndex .5s 0s, left .7s .4s;
     z-index: 10;
     background: radial-gradient(#f7f6f6, rgb(236, 235, 235));
     color: $primary-color;
@@ -58,10 +58,15 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
-.clothing-panel__weather-overview-icons {
+.clothing-panel__weather-overview-conditions {
+    flex-flow: column nowrap;
+}
+
+.clothing-panel__weather-overview-icons,
+.clothing-panel__weather-overview-icons-conditions {
     display: flex;
     flex-flow: row nowrap;
     width: 24%;
@@ -71,6 +76,12 @@
     box-shadow: 2px 3px 4px 0 rgba(128, 128, 128, 0.4);
     min-width: 140px;
     height: 130px;
+    margin: 0 auto;
+}
+
+.clothing-panel__weather-overview-icons-conditions {
+    width: 70%;
+    height: 150px;
 }
 
 .clothing-panel__weather-overview-temp__icon {
@@ -82,11 +93,14 @@
     width: 58%;
 }
 
-.clothing-panel__weather-overview-temp__description,
-.clothing-panel__weather-overview-conditions__description {
+.clothing-panel__weather-overview-temp__description {
     margin-left: 50px;
     text-align: left;
     line-height: 30px;
+}
+
+.clothing-panel__weather-overview-conditions__description {
+    margin: 40px 0;
 }
 
 .clothing-panel__what-to-wear {
@@ -115,6 +129,18 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+}
+
+.clothing-panel__weather-overview-conditions-list {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    li {
+        width: 20%
+    }
 }
 
 

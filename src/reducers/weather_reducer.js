@@ -18,7 +18,9 @@ export default function(state = {}, action) {
                 location: {
                     city: returnedData.location.city,
                     region: returnedData.location.region,
-                    country: returnedData.location.country
+                    country: returnedData.location.country,
+                    lat: returnedData.item.lat,
+                    lon: returnedData.item.long
                 },
                 days: [
                     {

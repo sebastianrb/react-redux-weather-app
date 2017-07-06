@@ -6,7 +6,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from "react-redux";
 import { transitionSetting } from "../index.js";
 import CityHeader from "./city-header";
+import ClothingConditionIcon from "./clothing-conditions-icon";
+import ClothingnIcon from "./clothing-icon";
 import conditions from "./conditions-object";
+import clothing from "./clothing-object";
 
 class ClothingPanel extends React.Component {
 
@@ -15,12 +18,19 @@ class ClothingPanel extends React.Component {
 
     this.state = {
       day: "",
+      hourlyWeather: "",
+      conditionTimes: ["Now", "In Three Hours", "In Six Hours"],
       searchEntered: false,
       imageURL: "",
       humidity: "",
       currentTemp: "",
       hotOrCold: "",
-      conditions: conditions
+      rainStormCodes: ["1", "2" ,"3", "4", "5", "6" ,"8", "9", "10", "11", "12", "17", "18", "35" ,"37", "38", "39", "40", "45", "47"],
+      snowStormCodes: ["5", "7", "8", "13", "14", "15", "16", "41", "42", "43", "46"],
+      weatherKeywords: [],
+      conditions: conditions,
+      clothingObject: clothing,
+      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boot", "shorts", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket-men", "jacket-women", "sunglasses", "shoe1", "shoe2", "flip-flops", "dress"]
     };
   }
 
@@ -32,6 +42,8 @@ class ClothingPanel extends React.Component {
       this.toggleSearchEntered(true);
       //set current day
       this.setDay(this.props.weather.days[0]);
+      this.setHourlyWeather(this.props.hourlyWeather);
+      this.generateWeatherKeywords(this.props.weather);
     }
   }
 
@@ -42,9 +54,40 @@ class ClothingPanel extends React.Component {
       this.toggleSearchEntered(true);
       //set current day
       this.setDay(nextProps.weather.days[0]);
+      this.setHourlyWeather(this.props.hourlyWeather);
+      this.generateWeatherKeywords(nextProps.weather);
     }
   }
 
+  generateWeatherKeywords(weather) {
+    let weatherKeywords = [];
+
+    //temp
+    if(weather.days[0].currentTemp > 85) {
+      weatherKeywords.push("hot");
+    } else if(weather.days[0].currentTemp > 72) {
+      weatherKeywords.push("warm");
+    } else if(weather.days[0].currentTemp > 58) {
+      weatherKeywords.push("fair");
+    } else if(weather.days[0].currentTemp > 45) {
+      weatherKeywords.push("cold");
+    } else {
+      weatherKeywords.push("very cold");
+    }
+
+    //conditions
+    if(this.state.rainStormCodes.indexOf(weather.days[0].conditionCode) !== -1) {
+      weatherKeywords.push("rain");
+    } else if(this.state.snowStormCodes.indexOf(weather.days[0].conditionCode) !== -1) {
+      weatherKeywords.push("snow");
+    } else {
+      weatherKeywords.push("dry");
+    }
+
+    this.setState({
+      weatherKeywords: weatherKeywords
+    });
+  }
 
   //refresh state
   toggleSearchEntered(found) {
@@ -58,6 +101,63 @@ class ClothingPanel extends React.Component {
     this.setState({
       day: day
     });
+  }
+
+  setHourlyWeather(data) {
+    this.setState({
+      hourlyWeather: data
+    });
+  }
+
+
+  resolveIcons(time) {
+    if(Object.keys(this.props.hourlyWeather).length > 0 && this.state.day !== "") {
+      let iconCode;
+      if(time === "Now") {
+        console.log("Running icon function - Now");
+        return this.state.conditions[this.state.day.conditionCode].image;
+      } else if(time === "In Three Hours") {
+        console.log("Running icon function - Three Hours");
+        iconCode = this.props.hourlyWeather["3Hours"].weather[0].icon;
+        console.log("Icon code 3: ", iconCode);
+        for(var code in this.state.conditions) {
+            let thisObject = this.state.conditions[code];
+            if(thisObject.hasOwnProperty("openWeatherMapCodes")) {
+              if(thisObject.openWeatherMapCodes.indexOf(iconCode) !== -1) {
+                console.log("Resolved image: ", thisObject.image);
+                return thisObject.image;
+              }
+            }
+        }
+      } else {
+        console.log("Running icon function - Six Hours");
+        iconCode = this.props.hourlyWeather["6Hours"].weather[0].icon;
+        console.log("Icon code 6: ", iconCode);
+        for(var code in this.state.conditions) {
+          let thisObject = this.state.conditions[code];
+          if(thisObject.hasOwnProperty("openWeatherMapCodes")) {
+            if(thisObject.openWeatherMapCodes.indexOf(iconCode) !== -1) {
+              console.log("Resolved image: ", thisObject.image);
+              return thisObject.image;
+            }
+          }
+        }
+      }
+    } else {
+      return null;
+    }
+  }
+
+  resolveConditionCaption(time) {
+    if(Object.keys(this.props.hourlyWeather).length > 0) {
+      if(time === "Now") {
+        return this.state.day.conditionDescription;
+      } else if(time === "In Three Hours") {
+        return this.props.hourlyWeather["3Hours"].weather[0].description;
+      } else {
+        return this.props.hourlyWeather["6Hours"].weather[0].description;
+      }
+    }
   }
 
 
@@ -112,24 +212,45 @@ class ClothingPanel extends React.Component {
     }
   }
 
-  // calculateHeatIndex(temperatureInput, humidityInput) {
-  //   let temperature = parseInt(temperatureInput);
-  //   let humidity = parseInt(humidityInput);
-  //   let heatIndex;
-  //   if(temperature > 80) {
-  //     heatIndex = Math.round(
-  //       -42.379 + (2.04901523 * temperature) + (10.14333127 * humidity) + (-0.22475541 * temperature * humidity) + (-.00683783 * temperature * temperature) + (-.05481717 * humidity * humidity) + (.00122874 * temperature * temperature * humidity) + (.00085282 * temperature * humidity * humidity) + (-.00000199 * temperature * temperature * humidity * humidity)
-  //       );
-  //   } else {
-  //     heatIndex = Math.round(.5 * (temperature + 61 + ((temperature - 68) * 1.2) + (humidity * .094)));
-  //   }
+  renderConditionsList() {
+    if(this.props.weather.count === 0 || Object.keys(this.props.weather).length === 0) {
+      return null;
+    } else {
+      if(Object.keys(this.props.hourlyWeather).length > 0) {
+        return this.state.conditionTimes.map((time) => {
+          return (
+            <ClothingConditionIcon
+              key={time}
+              timeCaption={time}
+              weatherCaption={this.resolveConditionCaption(time)}
+              icon={this.resolveIcons(time)}
+            />
+          );
+        });
+      }
+    }
+  }
 
-  //   console.log("Heat index: ", heatIndex);
 
-  //   return (
-  //     <span className="heat-index-span">{heatIndex}</span>
-  //   );
-  // }
+
+  renderClothingList() {
+    if(this.props.weather.count === 0 || Object.keys(this.props.weather).length === 0) {
+      return null;
+    } else {
+      return this.state.clothingItems.map((clothingItem) => {
+        return (
+          <ClothingConditionIcon
+            key={clothingItem}
+            clothingObject={this.state.clothingObject}
+            clothingItems={this.state.clothingItems}
+            clothingItems={this.state.clothingItems}
+          />
+        );
+      });
+    }
+  }
+
+
 
   render() {
     return (
@@ -163,15 +284,14 @@ class ClothingPanel extends React.Component {
                 <p className="clothing-panel__weather-overview-temp__description">{this.generateTemperatureString(this.state.day.currentTemp, this.state.day.humidity)} The heat index, a metric expressing the level of comfort felt as a result of the combined effects of the temperature and humidity of the air, currently reads {this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity)} degrees.</p>
               </div>
               <div className="clothing-panel__weather-overview-conditions">
-                <div className="clothing-panel__weather-overview-icons">
-                  <div className="clothing-panel__weather-overview-temp__icon-container">
-                    <img src={(this.state.searchEntered ? require(`../images/${this.state.conditions[this.state.day.conditionCode].image}.svg`)  : require(`../images/partly-cloudy.svg`))} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon clothing-icon-condition" />
-                    <p className="clothing-panel__weather-overview-temp__icon-caption">{this.state.day.conditionDescription}</p>
-                  </div>
-                </div>
-                <p className="clothing-panel__weather-overview-conditions__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <ul className="clothing-panel__weather-overview-conditions-list">
+                  {this.renderConditionsList()}
+                </ul>
+                {/*<p className="clothing-panel__weather-overview-conditions__description">Right now, {this.props.weather.location.city } is experiencing </p>*/}
               </div>
             </div>
+
+
             <div className="clothing-panel__what-to-wear">
               <h3 className="clothing-panel__what-to-wear__header">What to wear?</h3>
               <p className="clothing-panel__what-to-wear__caption">Here are our general clothing recommendations based on analysis of the current weather conditions:</p>
@@ -196,8 +316,10 @@ class ClothingPanel extends React.Component {
 
 function mapStateToProps(state) {
     return {
-      weather: state.weather
+      weather: state.weather,
+      hourlyWeather: state.hourlyWeather
     }
 }
+
 
 export default connect(mapStateToProps)(ClothingPanel);

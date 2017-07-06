@@ -17,7 +17,8 @@ const conditions = {
       },
   "4": {
         description: "thunderstorms",
-        image: "thunder"
+        image: "thunder",
+        openWeatherMapCodes: ["11d", "11n"]
       },
   "5": {
         description: "mixed rain and snow",
@@ -45,7 +46,8 @@ const conditions = {
       },
   "11": {
         description: "showers",
-        image: "rain"
+        image: "rain",
+        openWeatherMapCodes: ["09d", "09d", "10d", "10n"]
       },
   "12": {
         description: "showers",
@@ -65,7 +67,8 @@ const conditions = {
       },
   "16": {
         description: "snow",
-        image: "snow"
+        image: "snow",
+        openWeatherMapCodes: ["13d", "13n"]
       },
   "17": {
         description: "hail",
@@ -81,7 +84,8 @@ const conditions = {
       },
   "20": {
         description: "foggy",
-        image: "foggy"
+        image: "foggy",
+        openWeatherMapCodes: ["50d", "50n"]
       },
   "21": {
         description: "haze",
@@ -105,7 +109,8 @@ const conditions = {
       },
   "26": {
         description: "cloudy",
-        image: "cloudy"
+        image: "cloudy",
+        openWeatherMapCodes: ["04d", "04n"]
       },
   "27": {
         description: "mostly cloudy",
@@ -121,15 +126,18 @@ const conditions = {
       },
   "30": {
         description: "partly cloudy",
-        image: "partly-cloudy"
+        image: "partly-cloudy",
+        openWeatherMapCodes: ["02d", "02n", "03d", "03n"]
       },
   "31": {
         description: "clear",
-        image: "clear-night"
+        image: "clear-night",
+        openWeatherMapCodes: ["01n"]
       },
   "32": {
         description: "sunny",
-        image: "sunny"
+        image: "sunny",
+        openWeatherMapCodes: ["01d"]
       },
   "33": {
         description: "fair",
@@ -193,7 +201,8 @@ const conditions = {
       },
   "3200": {
         description: "not available",
-        image: "TBD"
+        image: "not-available",
+        openWeatherMapCodes: [""]
       }
 };
 
