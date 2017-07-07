@@ -32074,7 +32074,16 @@ var Footer = function Footer(props) {
     return _react2.default.createElement(
         "footer",
         { className: "footer" },
-        "\xA9 2017 | Developed by Sebastian Ramirez-Brunner"
+        _react2.default.createElement(
+            "span",
+            { className: "footer__year" },
+            " \xA9 2017 "
+        ),
+        _react2.default.createElement(
+            "span",
+            { className: "footer__name" },
+            "Sebastian Ramirez-Brunner "
+        )
     );
 };
 
@@ -34266,7 +34275,7 @@ var ClothingPanel = function (_React$Component) {
                   { className: 'clothing-panel__weather-overview-icons' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'clothing-panel__weather-overview-temp__icon-container' },
+                    { className: 'clothing-panel__weather-overview-temp__icon-container special-temp' },
                     _react2.default.createElement('img', { src: __webpack_require__(141), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon' }),
                     _react2.default.createElement(
                       'p',
@@ -34277,7 +34286,7 @@ var ClothingPanel = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'clothing-panel__weather-overview-temp__icon-container' },
+                    { className: 'clothing-panel__weather-overview-temp__icon-container special-temp' },
                     _react2.default.createElement('img', { src: __webpack_require__(140), alt: 'placeholder+image', className: 'clothing-panel__weather-overview-temp__icon' }),
                     _react2.default.createElement(
                       'p',
