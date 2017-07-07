@@ -75,7 +75,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 30px;
+    margin-top: 20px;
 
     @media screen and (max-width: $breakpoint-small-medium) {
         margin-top: 15px;
@@ -117,7 +117,7 @@
 }
 
 .clothing-panel__weather-overview-icons {
-    min-width: 160px;
+    min-width: 195px;
     @media screen and (max-width: $breakpoint-small-medium) {
         width: 75%;
         justify-content: space-around;
