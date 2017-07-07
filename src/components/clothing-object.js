@@ -10,9 +10,14 @@ const clothing = {
         caption: "rain gear"
     },
     "mittens": {
-        keywords: ["cold", "very cold", "snow"],
+        keywords: ["very cold", "snow"],
         imageURL: "mittens",
         caption: "gloves"
+    },
+    "winter-hat": {
+        keywords: ["very cold", "snow"],
+        imageURL: "winter-hat",
+        caption: "warm hats"
     },
     "boots": {
         keywords: ["rain", "snow"],

@@ -4242,7 +4242,7 @@ var _app = __webpack_require__(322);
 
 var _app2 = _interopRequireDefault(_app);
 
-var _reducers = __webpack_require__(431);
+var _reducers = __webpack_require__(432);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -5610,7 +5610,8 @@ var map = {
 	"./umbrella.svg": 371,
 	"./weather.svg": 372,
 	"./windy.svg": 373,
-	"./wintry.svg": 374
+	"./winter-hat.svg": 374,
+	"./wintry.svg": 375
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -8161,11 +8162,11 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsTransitionGroup = __webpack_require__(410);
+var _reactAddonsTransitionGroup = __webpack_require__(411);
 
 var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 
-var _TransitionChild = __webpack_require__(413);
+var _TransitionChild = __webpack_require__(414);
 
 var _TransitionChild2 = _interopRequireDefault(_TransitionChild);
 
@@ -13675,7 +13676,7 @@ module.exports = __webpack_require__.p + "/images/thermometer-clothing.svg";
 
 exports.__esModule = true;
 
-var _assign = __webpack_require__(377);
+var _assign = __webpack_require__(378);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -13700,7 +13701,7 @@ exports.default = _assign2.default || function (target) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(380);
+var aFunction = __webpack_require__(381);
 module.exports = function(fn, that, length){
   aFunction(fn);
   if(that === undefined)return fn;
@@ -13744,7 +13745,7 @@ module.exports = function(it){
 /* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(382), __esModule: true };
+module.exports = { "default": __webpack_require__(383), __esModule: true };
 
 /***/ }),
 /* 147 */
@@ -13785,7 +13786,7 @@ exports.default = function (instance, Constructor) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(384);
+var _defineProperty = __webpack_require__(385);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -13841,11 +13842,11 @@ exports.default = function (self, call) {
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(386);
+var _iterator = __webpack_require__(387);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(396);
+var _symbol = __webpack_require__(397);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -13871,7 +13872,7 @@ var LIBRARY        = __webpack_require__(153)
   , hide           = __webpack_require__(81)
   , has            = __webpack_require__(83)
   , Iterators      = __webpack_require__(84)
-  , $iterCreate    = __webpack_require__(391)
+  , $iterCreate    = __webpack_require__(392)
   , setToStringTag = __webpack_require__(85)
   , getProto       = __webpack_require__(12).getProto
   , ITERATOR       = __webpack_require__(35)('iterator')
@@ -14000,11 +14001,11 @@ module.exports = function(it){
 
 exports.__esModule = true;
 
-var _setPrototypeOf = __webpack_require__(404);
+var _setPrototypeOf = __webpack_require__(405);
 
 var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-var _create = __webpack_require__(408);
+var _create = __webpack_require__(409);
 
 var _create2 = _interopRequireDefault(_create);
 
@@ -14041,7 +14042,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _chainFunction = __webpack_require__(411);
+var _chainFunction = __webpack_require__(412);
 
 var _chainFunction2 = _interopRequireDefault(_chainFunction);
 
@@ -14057,7 +14058,7 @@ var _warning = __webpack_require__(18);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ChildMapping = __webpack_require__(412);
+var _ChildMapping = __webpack_require__(413);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14541,7 +14542,7 @@ exports.default = conditions;
 
 
 
-module.exports = __webpack_require__(418);
+module.exports = __webpack_require__(419);
 
 
 /***/ }),
@@ -30664,19 +30665,19 @@ var _header = __webpack_require__(324);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _footer = __webpack_require__(375);
+var _footer = __webpack_require__(376);
 
 var _footer2 = _interopRequireDefault(_footer);
 
-var _weatherPanel = __webpack_require__(376);
+var _weatherPanel = __webpack_require__(377);
 
 var _weatherPanel2 = _interopRequireDefault(_weatherPanel);
 
-var _clothingPanel = __webpack_require__(425);
+var _clothingPanel = __webpack_require__(426);
 
 var _clothingPanel2 = _interopRequireDefault(_clothingPanel);
 
-var _aboutPanel = __webpack_require__(430);
+var _aboutPanel = __webpack_require__(431);
 
 var _aboutPanel2 = _interopRequireDefault(_aboutPanel);
 
@@ -32044,10 +32045,16 @@ module.exports = __webpack_require__.p + "/images/windy.svg";
 /* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/images/wintry.svg";
+module.exports = __webpack_require__.p + "/images/winter-hat.svg";
 
 /***/ }),
 /* 375 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "/images/wintry.svg";
+
+/***/ }),
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32074,7 +32081,7 @@ var Footer = function Footer(props) {
 exports.default = Footer;
 
 /***/ }),
-/* 376 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32104,7 +32111,7 @@ var _conditionsObject = __webpack_require__(162);
 
 var _conditionsObject2 = _interopRequireDefault(_conditionsObject);
 
-var _weatherDay = __webpack_require__(417);
+var _weatherDay = __webpack_require__(418);
 
 var _weatherDay2 = _interopRequireDefault(_weatherDay);
 
@@ -32262,29 +32269,29 @@ function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(WeatherPanel);
 
 /***/ }),
-/* 377 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(378), __esModule: true };
-
-/***/ }),
 /* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(379);
-module.exports = __webpack_require__(21).Object.assign;
+module.exports = { "default": __webpack_require__(379), __esModule: true };
 
 /***/ }),
 /* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(34);
-
-$export($export.S + $export.F, 'Object', {assign: __webpack_require__(381)});
+__webpack_require__(380);
+module.exports = __webpack_require__(21).Object.assign;
 
 /***/ }),
 /* 380 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(34);
+
+$export($export.S + $export.F, 'Object', {assign: __webpack_require__(382)});
+
+/***/ }),
+/* 381 */
 /***/ (function(module, exports) {
 
 module.exports = function(it){
@@ -32293,7 +32300,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 381 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.1 Object.assign(target, source, ...)
@@ -32331,14 +32338,14 @@ module.exports = __webpack_require__(50)(function(){
 } : Object.assign;
 
 /***/ }),
-/* 382 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(383);
+__webpack_require__(384);
 module.exports = __webpack_require__(21).Object.getPrototypeOf;
 
 /***/ }),
-/* 383 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
@@ -32351,13 +32358,13 @@ __webpack_require__(147)('getPrototypeOf', function($getPrototypeOf){
 });
 
 /***/ }),
-/* 384 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(385), __esModule: true };
+module.exports = { "default": __webpack_require__(386), __esModule: true };
 
 /***/ }),
-/* 385 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(12);
@@ -32366,26 +32373,26 @@ module.exports = function defineProperty(it, key, desc){
 };
 
 /***/ }),
-/* 386 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(387), __esModule: true };
-
-/***/ }),
 /* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(388);
-__webpack_require__(392);
-module.exports = __webpack_require__(35)('iterator');
+module.exports = { "default": __webpack_require__(388), __esModule: true };
 
 /***/ }),
 /* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(389);
+__webpack_require__(393);
+module.exports = __webpack_require__(35)('iterator');
+
+/***/ }),
+/* 389 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
-var $at  = __webpack_require__(389)(true);
+var $at  = __webpack_require__(390)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
 __webpack_require__(152)(String, 'String', function(iterated){
@@ -32403,10 +32410,10 @@ __webpack_require__(152)(String, 'String', function(iterated){
 });
 
 /***/ }),
-/* 389 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(390)
+var toInteger = __webpack_require__(391)
   , defined   = __webpack_require__(80);
 // true  -> String#at
 // false -> String#codePointAt
@@ -32425,7 +32432,7 @@ module.exports = function(TO_STRING){
 };
 
 /***/ }),
-/* 390 */
+/* 391 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -32436,7 +32443,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 391 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32455,21 +32462,21 @@ module.exports = function(Constructor, NAME, next){
 };
 
 /***/ }),
-/* 392 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(393);
+__webpack_require__(394);
 var Iterators = __webpack_require__(84);
 Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
 
 /***/ }),
-/* 393 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(394)
-  , step             = __webpack_require__(395)
+var addToUnscopables = __webpack_require__(395)
+  , step             = __webpack_require__(396)
   , Iterators        = __webpack_require__(84)
   , toIObject        = __webpack_require__(51);
 
@@ -32503,13 +32510,13 @@ addToUnscopables('values');
 addToUnscopables('entries');
 
 /***/ }),
-/* 394 */
+/* 395 */
 /***/ (function(module, exports) {
 
 module.exports = function(){ /* empty */ };
 
 /***/ }),
-/* 395 */
+/* 396 */
 /***/ (function(module, exports) {
 
 module.exports = function(done, value){
@@ -32517,21 +32524,21 @@ module.exports = function(done, value){
 };
 
 /***/ }),
-/* 396 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(397), __esModule: true };
-
-/***/ }),
 /* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(398);
-__webpack_require__(403);
-module.exports = __webpack_require__(21).Symbol;
+module.exports = { "default": __webpack_require__(398), __esModule: true };
 
 /***/ }),
 /* 398 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(399);
+__webpack_require__(404);
+module.exports = __webpack_require__(21).Symbol;
+
+/***/ }),
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32548,10 +32555,10 @@ var $              = __webpack_require__(12)
   , setToStringTag = __webpack_require__(85)
   , uid            = __webpack_require__(157)
   , wks            = __webpack_require__(35)
-  , keyOf          = __webpack_require__(399)
-  , $names         = __webpack_require__(400)
-  , enumKeys       = __webpack_require__(401)
-  , isArray        = __webpack_require__(402)
+  , keyOf          = __webpack_require__(400)
+  , $names         = __webpack_require__(401)
+  , enumKeys       = __webpack_require__(402)
+  , isArray        = __webpack_require__(403)
   , anObject       = __webpack_require__(158)
   , toIObject      = __webpack_require__(51)
   , createDesc     = __webpack_require__(82)
@@ -32764,7 +32771,7 @@ setToStringTag(Math, 'Math', true);
 setToStringTag(global.JSON, 'JSON', true);
 
 /***/ }),
-/* 399 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $         = __webpack_require__(12)
@@ -32779,7 +32786,7 @@ module.exports = function(object, el){
 };
 
 /***/ }),
-/* 400 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
@@ -32804,7 +32811,7 @@ module.exports.get = function getOwnPropertyNames(it){
 };
 
 /***/ }),
-/* 401 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
@@ -32823,7 +32830,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 402 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
@@ -32833,34 +32840,34 @@ module.exports = Array.isArray || function(arg){
 };
 
 /***/ }),
-/* 403 */
+/* 404 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 404 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(405), __esModule: true };
-
-/***/ }),
 /* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(406);
-module.exports = __webpack_require__(21).Object.setPrototypeOf;
+module.exports = { "default": __webpack_require__(406), __esModule: true };
 
 /***/ }),
 /* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(34);
-$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(407).set});
+__webpack_require__(407);
+module.exports = __webpack_require__(21).Object.setPrototypeOf;
 
 /***/ }),
 /* 407 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = __webpack_require__(34);
+$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(408).set});
+
+/***/ }),
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -32891,13 +32898,13 @@ module.exports = {
 };
 
 /***/ }),
-/* 408 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(409), __esModule: true };
+module.exports = { "default": __webpack_require__(410), __esModule: true };
 
 /***/ }),
-/* 409 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(12);
@@ -32906,7 +32913,7 @@ module.exports = function create(P, D){
 };
 
 /***/ }),
-/* 410 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32925,7 +32932,7 @@ module.exports = __webpack_require__(161);
 
 
 /***/ }),
-/* 411 */
+/* 412 */
 /***/ (function(module, exports) {
 
 
@@ -32951,7 +32958,7 @@ module.exports = function chain(){
 
 
 /***/ }),
-/* 412 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33048,7 +33055,7 @@ function mergeChildMappings(prev, next) {
 }
 
 /***/ }),
-/* 413 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33059,7 +33066,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports['default'] = undefined;
 
-var _keys = __webpack_require__(414);
+var _keys = __webpack_require__(415);
 
 var _keys2 = _interopRequireDefault(_keys);
 
@@ -33169,20 +33176,20 @@ exports['default'] = TransitionChild;
 //# sourceMappingURL=TransitionChild.js.map
 
 /***/ }),
-/* 414 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(415), __esModule: true };
-
-/***/ }),
 /* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(416);
-module.exports = __webpack_require__(21).Object.keys;
+module.exports = { "default": __webpack_require__(416), __esModule: true };
 
 /***/ }),
 /* 416 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(417);
+module.exports = __webpack_require__(21).Object.keys;
+
+/***/ }),
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
@@ -33195,7 +33202,7 @@ __webpack_require__(147)('keys', function($keys){
 });
 
 /***/ }),
-/* 417 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33269,7 +33276,7 @@ var WeatherDay = function (_React$Component) {
             _react2.default.createElement(
               "p",
               { className: "weather-panel__day-placeholder-text" },
-              "Search for a city to see weather data."
+              "Search for a city to see weather data"
             )
           )
         );
@@ -33352,7 +33359,7 @@ var WeatherDay = function (_React$Component) {
 exports.default = WeatherDay;
 
 /***/ }),
-/* 418 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33374,7 +33381,7 @@ var _TransitionGroup = __webpack_require__(161);
 
 var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
-var _CSSTransitionGroupChild = __webpack_require__(419);
+var _CSSTransitionGroupChild = __webpack_require__(420);
 
 var _CSSTransitionGroupChild2 = _interopRequireDefault(_CSSTransitionGroupChild);
 
@@ -33452,7 +33459,7 @@ exports.default = CSSTransitionGroup;
 module.exports = exports['default'];
 
 /***/ }),
-/* 419 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33462,19 +33469,19 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _addClass = __webpack_require__(420);
+var _addClass = __webpack_require__(421);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(422);
+var _removeClass = __webpack_require__(423);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _requestAnimationFrame = __webpack_require__(423);
+var _requestAnimationFrame = __webpack_require__(424);
 
 var _requestAnimationFrame2 = _interopRequireDefault(_requestAnimationFrame);
 
-var _properties = __webpack_require__(424);
+var _properties = __webpack_require__(425);
 
 var _react = __webpack_require__(2);
 
@@ -33687,7 +33694,7 @@ exports.default = CSSTransitionGroupChild;
 module.exports = exports['default'];
 
 /***/ }),
-/* 420 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33698,7 +33705,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = addClass;
 
-var _hasClass = __webpack_require__(421);
+var _hasClass = __webpack_require__(422);
 
 var _hasClass2 = _interopRequireDefault(_hasClass);
 
@@ -33710,7 +33717,7 @@ function addClass(element, className) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 421 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33726,7 +33733,7 @@ function hasClass(element, className) {
 module.exports = exports["default"];
 
 /***/ }),
-/* 422 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33737,7 +33744,7 @@ module.exports = function removeClass(element, className) {
 };
 
 /***/ }),
-/* 423 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33796,7 +33803,7 @@ exports.default = compatRaf;
 module.exports = exports['default'];
 
 /***/ }),
-/* 424 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33912,7 +33919,7 @@ function getTransitionProperties() {
 }
 
 /***/ }),
-/* 425 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33928,7 +33935,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _heatIndex = __webpack_require__(426);
+var _heatIndex = __webpack_require__(427);
 
 var _heatIndex2 = _interopRequireDefault(_heatIndex);
 
@@ -33950,11 +33957,11 @@ var _cityHeader = __webpack_require__(166);
 
 var _cityHeader2 = _interopRequireDefault(_cityHeader);
 
-var _clothingConditionsIcon = __webpack_require__(427);
+var _clothingConditionsIcon = __webpack_require__(428);
 
 var _clothingConditionsIcon2 = _interopRequireDefault(_clothingConditionsIcon);
 
-var _clothingIcon = __webpack_require__(428);
+var _clothingIcon = __webpack_require__(429);
 
 var _clothingIcon2 = _interopRequireDefault(_clothingIcon);
 
@@ -33962,7 +33969,7 @@ var _conditionsObject = __webpack_require__(162);
 
 var _conditionsObject2 = _interopRequireDefault(_conditionsObject);
 
-var _clothingObject = __webpack_require__(429);
+var _clothingObject = __webpack_require__(430);
 
 var _clothingObject2 = _interopRequireDefault(_clothingObject);
 
@@ -33996,7 +34003,7 @@ var ClothingPanel = function (_React$Component) {
       weatherKeywords: [],
       conditions: _conditionsObject2.default,
       clothingObject: _clothingObject2.default,
-      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket", "sunglasses", "shoe1", "flip-flops", "dress"]
+      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "winter-hat", "boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket", "sunglasses", "shoe1", "flip-flops", "dress"]
     };
     return _this;
   }
@@ -34324,7 +34331,7 @@ var ClothingPanel = function (_React$Component) {
               _react2.default.createElement(
                 'h3',
                 { className: 'clothing-panel__cover-caption' },
-                'Please search for a city to see recommendations'
+                'Search for a city to see recommendations'
               )
             )
           )
@@ -34348,7 +34355,7 @@ function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(ClothingPanel);
 
 /***/ }),
-/* 426 */
+/* 427 */
 /***/ (function(module, exports) {
 
 var HI = {
@@ -34419,7 +34426,7 @@ module.exports = HI;
 
 
 /***/ }),
-/* 427 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34464,7 +34471,7 @@ var ClothingConditionIcon = function ClothingConditionIcon(props) {
 exports.default = ClothingConditionIcon;
 
 /***/ }),
-/* 428 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34539,7 +34546,7 @@ var ClothingIcon = function ClothingIcon(props) {
 exports.default = ClothingIcon;
 
 /***/ }),
-/* 429 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34560,9 +34567,14 @@ var clothing = {
         caption: "rain gear"
     },
     "mittens": {
-        keywords: ["cold", "very cold", "snow"],
+        keywords: ["very cold", "snow"],
         imageURL: "mittens",
         caption: "gloves"
+    },
+    "winter-hat": {
+        keywords: ["very cold", "snow"],
+        imageURL: "winter-hat",
+        caption: "warm hats"
     },
     "boots": {
         keywords: ["rain", "snow"],
@@ -34623,7 +34635,7 @@ var clothing = {
 exports.default = clothing;
 
 /***/ }),
-/* 430 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34681,7 +34693,7 @@ var AboutPanel = function AboutPanel(props) {
 exports.default = AboutPanel;
 
 /***/ }),
-/* 431 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34691,15 +34703,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _weather_reducer = __webpack_require__(432);
+var _weather_reducer = __webpack_require__(433);
 
 var _weather_reducer2 = _interopRequireDefault(_weather_reducer);
 
-var _lastTerm_reducer = __webpack_require__(433);
+var _lastTerm_reducer = __webpack_require__(434);
 
 var _lastTerm_reducer2 = _interopRequireDefault(_lastTerm_reducer);
 
-var _hourly_weather_reducer = __webpack_require__(434);
+var _hourly_weather_reducer = __webpack_require__(435);
 
 var _hourly_weather_reducer2 = _interopRequireDefault(_hourly_weather_reducer);
 
@@ -34717,7 +34729,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 432 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34788,7 +34800,7 @@ exports.default = function () {
 var _actions = __webpack_require__(47);
 
 /***/ }),
-/* 433 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34813,7 +34825,7 @@ exports.default = function () {
 var _actions = __webpack_require__(47);
 
 /***/ }),
-/* 434 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

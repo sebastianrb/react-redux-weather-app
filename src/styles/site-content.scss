@@ -8,6 +8,11 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+
+    @media screen and (max-width: $breakpoint-small-medium) {
+        margin: 45px auto 55px;
+        padding: 15px;
+    }
 }
 
 .app-content > div,

@@ -30,7 +30,7 @@ class ClothingPanel extends React.Component {
       weatherKeywords: [],
       conditions: conditions,
       clothingObject: clothing,
-      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket", "sunglasses", "shoe1", "flip-flops", "dress"]
+      clothingItems: ["short-sleeved-shirt", "umbrella", "mittens", "winter-hat" ,"boots", "shorts", "tank-top", "jeans", "long-sleeved-shirt", "jacket", "sunglasses", "shoe1", "flip-flops", "dress"]
     };
   }
 
@@ -265,11 +265,11 @@ class ClothingPanel extends React.Component {
               <h3 className="clothing-panel__weather-overview-header">What's it like out right now?</h3>
               <div className="clothing-panel__weather-overview-temp">
                 <div className="clothing-panel__weather-overview-icons">
-                  <div className="clothing-panel__weather-overview-temp__icon-container">
+                  <div className="clothing-panel__weather-overview-temp__icon-container special-temp">
                     <img src={require("../images/thermometer-clothing.svg")} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon" />
                     <p className="clothing-panel__weather-overview-temp__icon-caption">{this.state.day.currentTemp}&deg;</p>
                   </div>
-                  <div className="clothing-panel__weather-overview-temp__icon-container">
+                  <div className="clothing-panel__weather-overview-temp__icon-container special-temp">
                     <img src={require("../images/humidity-clothing.svg")} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon" />
                     <p className="clothing-panel__weather-overview-temp__icon-caption">{this.state.day.humidity}%</p>
                   </div>
@@ -293,7 +293,7 @@ class ClothingPanel extends React.Component {
               </ul>
             </div>
             <div className={"clothing-panel__cover" + (this.state.searchEntered ? " cover-hidden"  : "")}>
-              <h3 className="clothing-panel__cover-caption">Please search for a city to see recommendations</h3>
+              <h3 className="clothing-panel__cover-caption">Search for a city to see recommendations</h3>
             </div>
           </div>
         </div>

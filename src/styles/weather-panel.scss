@@ -18,12 +18,16 @@
         justify-content: space-around;
         align-items: center;
         width: 100%;
+
+        @media screen and (max-width: $breakpoint-medium) {
+            flex-flow: column wrap;
+        }
     }
 
     .weather-panel__day {
         text-align: center;
         width: 23%;
-        min-width: 300px;
+        min-width: 310px;
         height: 415px;
         border-radius: 4px;
         background: transparentize($primary-color, .9);
@@ -37,6 +41,22 @@
         transition: all .4s;
         box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.45) inset;
         padding-top: 5px;
+        margin: 25px;
+
+        @media screen and (max-width: $breakpoint-medium) {
+            min-width: 330px;
+        }
+
+        @media screen and (max-width: $breakpoint-small-medium) {
+            height: 400px;
+            font-size: 1em;
+            min-width: 310px;
+        }
+
+        @media screen and (max-width: $breakpoint-extra-extra-small) {
+            min-width: 290px;
+        }
+
     }
 
     .weather-panel__day:first-child {
@@ -44,6 +64,15 @@
         // background: transparentize($primary-color, .85);
         width: 25%;
         height: 450px;
+
+        @media screen and (max-width: $breakpoint-small-medium) {
+            height: 420px;
+            min-width: 320px;
+        }
+
+        @media screen and (max-width: $breakpoint-extra-extra-small) {
+            min-width: 290px;
+        }
     }
 
     .weather-panel__day-header {
@@ -79,6 +108,10 @@
     width: 31%;
     padding: 0;
     margin: 0 auto;
+
+    @media screen and (max-width: $breakpoint-extra-extra-small) {
+        width: 27%;
+    }
 }
 
 .weather-panel__conditions-caption {

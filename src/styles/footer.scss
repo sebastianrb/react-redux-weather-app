@@ -2,9 +2,21 @@
     background: transparentize($primary-color, .6);
     padding: 20px;
     color: white;
-    height: 150px;
+    height: 200px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: $breakpoint-medium) {
+        height: 170px;
+    }
+
+    @media screen and (max-width: $breakpoint-extra-extra-small) {
+        font-size: .9em;
+    }
+
+    .footer__name {
+        margin-top: 10px;
+    }
 }
