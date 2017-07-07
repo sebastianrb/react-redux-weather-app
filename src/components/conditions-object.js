@@ -208,3 +208,14 @@ const conditions = {
 };
 
 export default conditions;
+
+//preload images
+
+let images = ["clear-night", "cloudy", "foggy", "high-temp", "low-temp", "partly-cloudy", "rain", "snow", "sunny", "thunder", "windy", "wintry"];
+
+var imageObject = {};
+
+for (var i = 0; i < images.length; i++) {
+  imageObject[images[i]] = new Image();
+  imageObject[images[i]].src = `../images/${images[i]}.svg`;
+}
