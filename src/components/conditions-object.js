@@ -209,6 +209,8 @@ const conditions = {
 
 export default conditions;
 
+
+
 //preload images
 
 let images = ["clear-night", "cloudy", "foggy", "high-temp", "low-temp", "partly-cloudy", "rain", "snow", "sunny", "thunder", "windy", "wintry"];
