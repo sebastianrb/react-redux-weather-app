@@ -41,7 +41,7 @@
     justify-content: center;
     align-items: center;
     // transition: opacity .6s .1s, zIndex .4s .2s, background-color .3s 0s;
-    transition: transform .5s 0s, opacity .3s .5s, zIndex .5s 0s, left .7s .4s;
+    transition: transform .5s .2s, opacity .5s .1s, zIndex .5s .2s, left .7s .4s;
     z-index: 10;
     background: radial-gradient(#f7f6f6, rgb(236, 235, 235));
     color: $primary-color;
@@ -61,8 +61,8 @@
 
     &.cover-hidden {
         opacity: 0;
-        // transform: scale(.4);
-        left: -150%;
+        transform: scale(.6);
+        // left: -150%;
         z-index: 0;
     }
 }
