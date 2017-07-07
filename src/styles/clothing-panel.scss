@@ -118,6 +118,7 @@
 
 .clothing-panel__weather-overview-icons {
     min-width: 195px;
+    width: 210px;
     @media screen and (max-width: $breakpoint-small-medium) {
         width: 75%;
         justify-content: space-around;
@@ -148,6 +149,7 @@
     margin-left: 50px;
     text-align: left;
     line-height: 30px;
+    width: 80%;
 
     @media screen and (max-width: $breakpoint-small-medium) {
         margin: 10px;
@@ -206,7 +208,7 @@
 
         p.clothing-panel__clothing-icon-caption {
             margin: 10px auto 5px;
-            font-size: .9em;
+            font-size: .95em;
         }
     }
 }
@@ -223,7 +225,7 @@
 
 .clothing-panel__weather-overview-temp__icon-caption {
     margin: 7px 0 0;
-    font-size: .9em;
+    font-size: .95em;
 
     @media screen and (max-width: $breakpoint-small-medium) {
         margin: 10px 0 0;
