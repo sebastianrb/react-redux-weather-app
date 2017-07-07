@@ -7,7 +7,7 @@ const ClothingConditionIcon = (props) => {
             <div className="clothing-panel__weather-overview-icons-conditions">
               <div className="clothing-panel__weather-overview-temp__icon-container">
                 <img src={(props.icon ? require(`../images/${props.icon}.svg`) : require(`../images/not-available.svg`))} alt="placeholder+image" className="clothing-panel__weather-overview-temp__icon clothing-icon-condition" />
-                <p className="clothing-panel__weather-overview-temp__icon-caption">{props.weatherCaption}</p>
+                <p className="clothing-panel__weather-overview-temp__icon-caption">{(props.weatherCaption ? props.weatherCaption.toLowerCase() : props.weatherCaption)}</p>
               </div>
             </div>
         </li>

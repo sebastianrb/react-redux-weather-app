@@ -294,7 +294,7 @@
         border-radius: 4px;
         transition: all .1s;
         padding: 5px;
-        // min-width: 115px;
+        flex-grow: 1;
 
         @media screen and (max-width: $breakpoint-medium) {
             min-width: 0;

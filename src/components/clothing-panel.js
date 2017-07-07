@@ -246,6 +246,7 @@ class ClothingPanel extends React.Component {
 
 
   render() {
+
     return (
       <EasyTransition
           path={location.pathname}
@@ -278,7 +279,7 @@ class ClothingPanel extends React.Component {
               </div>
               <div className="clothing-panel__weather-overview-conditions">
                 <ul className="clothing-panel__weather-overview-conditions-list">
-                  {this.renderConditionsList()}
+                    {this.renderConditionsList()}
                 </ul>
                 {/*<p className="clothing-panel__weather-overview-conditions__description">Right now, {this.props.weather.location.city } is experiencing </p>*/}
               </div>
@@ -289,7 +290,7 @@ class ClothingPanel extends React.Component {
               <h3 className="clothing-panel__what-to-wear__header">What to wear?</h3>
               <p className="clothing-panel__what-to-wear__caption">Here are our general clothing recommendations based on analysis of the current weather conditions:</p>
               <ul className="clothing-panel__what-to-wear__clothing-icons">
-                {this.renderClothingList()}
+                  {this.renderClothingList()}
               </ul>
             </div>
             <div className={"clothing-panel__cover" + (this.state.searchEntered ? " cover-hidden"  : "")}>

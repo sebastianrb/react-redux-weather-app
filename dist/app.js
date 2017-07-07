@@ -14432,7 +14432,8 @@ var conditions = {
       },
       "27": {
             description: "mostly cloudy",
-            image: "cloudy-night"
+            image: "cloudy-night",
+            openWeatherMapCodes: ["02n", "03n"]
       },
       "28": {
             description: "mostly cloudy",
@@ -14445,7 +14446,7 @@ var conditions = {
       "30": {
             description: "partly cloudy",
             image: "partly-cloudy",
-            openWeatherMapCodes: ["02d", "02n", "03d", "03n"]
+            openWeatherMapCodes: ["02d", "03d"]
       },
       "31": {
             description: "clear",
@@ -34240,6 +34241,7 @@ var ClothingPanel = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+
       return _react2.default.createElement(
         _reactEasyTransition2.default,
         {
@@ -34470,7 +34472,7 @@ var ClothingConditionIcon = function ClothingConditionIcon(props) {
                 _react2.default.createElement(
                     "p",
                     { className: "clothing-panel__weather-overview-temp__icon-caption" },
-                    props.weatherCaption
+                    props.weatherCaption ? props.weatherCaption.toLowerCase() : props.weatherCaption
                 )
             )
         )

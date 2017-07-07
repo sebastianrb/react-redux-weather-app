@@ -114,7 +114,8 @@ const conditions = {
       },
   "27": {
         description: "mostly cloudy",
-        image: "cloudy-night"
+        image: "cloudy-night",
+        openWeatherMapCodes: ["02n", "03n"]
       },
   "28": {
         description: "mostly cloudy",
@@ -127,7 +128,7 @@ const conditions = {
   "30": {
         description: "partly cloudy",
         image: "partly-cloudy",
-        openWeatherMapCodes: ["02d", "02n", "03d", "03n"]
+        openWeatherMapCodes: ["02d", "03d"]
       },
   "31": {
         description: "clear",

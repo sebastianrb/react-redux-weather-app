@@ -1,5 +1,5 @@
 .clothing-panel {
-    width: 95%;
+    width: 96%;
     margin: 0 auto;
     position: relative;
 
@@ -97,7 +97,7 @@
 .clothing-panel__weather-overview-icons-conditions {
     display: flex;
     flex-flow: row nowrap;
-    width: 24%;
+    width: 25%;
     justify-content: center;
     padding: 18px 20px;
     background: rgba(211, 211, 211, 0.6);
@@ -127,7 +127,7 @@
 }
 
 .clothing-panel__weather-overview-icons-conditions {
-    width: 90%;
+    width: 100%;
     padding: 15px 20px;
 }
 
@@ -167,7 +167,7 @@
 .clothing-panel__what-to-wear__clothing-icons {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-top: 50px;
 
@@ -231,7 +231,7 @@
 }
 
 .clothing-panel__weather-overview-temp__icon-container {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -252,8 +252,9 @@
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    margin-top: 10px;
 
     @media screen and (max-width: $breakpoint-small-medium) {
         flex-flow: column wrap;
@@ -261,7 +262,8 @@
 
     li {
         width: 22%;
-        margin: 10px;
+        margin: 20px 25px;
+        transition: all .4s;
 
         @media screen and (max-width: $breakpoint-large) {
             width: 28%;
@@ -269,13 +271,14 @@
 
         @media screen and (max-width: $breakpoint-small-medium) {
             width: 80%;
+            margin: 10px;
         }
     }
 }
 
 .clothing-panel__weather-overview-icons-time {
     @media screen and (max-width: $breakpoint-small-medium) {
-        margin: 30px 0 10px;
+        margin: 20px 0 10px;
     }
 }
 
