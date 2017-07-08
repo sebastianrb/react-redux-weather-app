@@ -5560,7 +5560,7 @@ function getLastTerm(term) {
 
 function getHourlyWeather(lat, lon) {
     var API_KEY = "58c0fd890f30516b59c6615c6b956fb8";
-    var URL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + API_KEY;
+    var URL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + API_KEY;
 
     var request = _axios2.default.get(URL);
 
@@ -34223,6 +34223,7 @@ var ClothingPanel = function (_React$Component) {
             return _react2.default.createElement(_clothingConditionsIcon2.default, {
               key: time,
               timeCaption: time,
+              hourlyWeather: _this2.props.hourlyWeather,
               weatherCaption: _this2.resolveConditionCaption(time),
               icon: _this2.resolveIcons(time)
             });
@@ -34483,6 +34484,7 @@ var ClothingConditionIcon = function ClothingConditionIcon(props) {
                 _react2.default.createElement(
                     "p",
                     { className: "clothing-panel__weather-overview-temp__icon-caption" },
+                    props.timeCaption === "In Three Hours" ? parseInt(props.hourlyWeather["3Hours"].main.temp) + String.fromCharCode(176) + " | " : props.timeCaption === "In Six Hours" ? parseInt(props.hourlyWeather["6Hours"].main.temp) + String.fromCharCode(176) + " | " : "",
                     props.weatherCaption ? props.weatherCaption.toLowerCase() : props.weatherCaption
                 )
             )

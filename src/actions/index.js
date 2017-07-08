@@ -24,7 +24,7 @@ export function getLastTerm(term) {
 
 export function getHourlyWeather(lat, lon) {
     const API_KEY = "58c0fd890f30516b59c6615c6b956fb8";
-    const URL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+    const URL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`
 
     const request = Axios.get(URL);
 

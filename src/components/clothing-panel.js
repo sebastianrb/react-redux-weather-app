@@ -214,6 +214,7 @@ class ClothingPanel extends React.Component {
             <ClothingConditionIcon
               key={time}
               timeCaption={time}
+              hourlyWeather={this.props.hourlyWeather}
               weatherCaption={this.resolveConditionCaption(time)}
               icon={this.resolveIcons(time)}
             />
@@ -281,11 +282,8 @@ class ClothingPanel extends React.Component {
                 <ul className="clothing-panel__weather-overview-conditions-list">
                     {this.renderConditionsList()}
                 </ul>
-                {/*<p className="clothing-panel__weather-overview-conditions__description">Right now, {this.props.weather.location.city } is experiencing </p>*/}
               </div>
             </div>
-
-
             <div className="clothing-panel__what-to-wear">
               <h3 className="clothing-panel__what-to-wear__header">What to wear?</h3>
               <p className="clothing-panel__what-to-wear__caption">Here are our general clothing recommendations based on analysis of the current weather conditions:</p>
