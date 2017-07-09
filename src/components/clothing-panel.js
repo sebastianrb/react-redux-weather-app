@@ -63,13 +63,13 @@ class ClothingPanel extends React.Component {
     let weatherKeywords = [];
 
     //temp
-    if(weather.days[0].currentTemp > 85) {
+    if(this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity) > 85) {
       weatherKeywords.push("hot");
-    } else if(weather.days[0].currentTemp > 72) {
+    } else if(this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity) > 72) {
       weatherKeywords.push("warm");
-    } else if(weather.days[0].currentTemp > 55) {
+    } else if(this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity) > 55) {
       weatherKeywords.push("fair");
-    } else if(weather.days[0].currentTemp > 42) {
+    } else if(this.getHeatIndex(this.state.day.currentTemp, this.state.day.humidity) > 42) {
       weatherKeywords.push("cold");
     } else {
       weatherKeywords.push("very cold");
