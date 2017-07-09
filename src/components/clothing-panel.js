@@ -43,7 +43,9 @@ class ClothingPanel extends React.Component {
       //set current day
       this.setDay(this.props.weather.days[0]);
       this.setHourlyWeather(this.props.hourlyWeather);
-      this.generateWeatherKeywords(this.props.weather);
+      setTimeout(() => {
+        this.generateWeatherKeywords(this.props.weather);
+      }, 10);
     }
   }
 

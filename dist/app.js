@@ -34032,6 +34032,8 @@ var ClothingPanel = function (_React$Component) {
   _createClass(ClothingPanel, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       if (this.props.weather.count === 0 || !this.props.weather.count) {
         console.log("Component mounted");
         this.toggleSearchEntered(false);
@@ -34040,7 +34042,9 @@ var ClothingPanel = function (_React$Component) {
         //set current day
         this.setDay(this.props.weather.days[0]);
         this.setHourlyWeather(this.props.hourlyWeather);
-        this.generateWeatherKeywords(this.props.weather);
+        setTimeout(function () {
+          _this2.generateWeatherKeywords(_this2.props.weather);
+        }, 10);
       }
     }
   }, {
@@ -34213,7 +34217,7 @@ var ClothingPanel = function (_React$Component) {
   }, {
     key: 'renderConditionsList',
     value: function renderConditionsList() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (this.props.weather.count === 0 || Object.keys(this.props.weather).length === 0) {
         return null;
@@ -34223,9 +34227,9 @@ var ClothingPanel = function (_React$Component) {
             return _react2.default.createElement(_clothingConditionsIcon2.default, {
               key: time,
               timeCaption: time,
-              hourlyWeather: _this2.props.hourlyWeather,
-              weatherCaption: _this2.resolveConditionCaption(time),
-              icon: _this2.resolveIcons(time)
+              hourlyWeather: _this3.props.hourlyWeather,
+              weatherCaption: _this3.resolveConditionCaption(time),
+              icon: _this3.resolveIcons(time)
             });
           });
         }
@@ -34234,7 +34238,7 @@ var ClothingPanel = function (_React$Component) {
   }, {
     key: 'renderClothingList',
     value: function renderClothingList() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this.props.weather.count === 0 || Object.keys(this.props.weather).length === 0) {
         return null;
@@ -34243,9 +34247,9 @@ var ClothingPanel = function (_React$Component) {
           return _react2.default.createElement(_clothingIcon2.default, {
             key: clothingItem,
             name: clothingItem,
-            clothingObject: _this3.state.clothingObject,
-            clothingItems: _this3.state.clothingItems,
-            weatherKeywords: _this3.state.weatherKeywords
+            clothingObject: _this4.state.clothingObject,
+            clothingItems: _this4.state.clothingItems,
+            weatherKeywords: _this4.state.weatherKeywords
           });
         });
       }
