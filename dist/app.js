@@ -34558,7 +34558,11 @@ var ClothingIcon = function ClothingIcon(props) {
             _react2.default.createElement(
                 "div",
                 { className: "clothing-panel__clothing-icon-container" },
-                _react2.default.createElement("img", { src: iconURL ? __webpack_require__(48)("./" + iconURL + ".svg") : __webpack_require__(77), alt: "placeholder+image", className: "clothing-panel__clothing-icon-image" }),
+                _react2.default.createElement("img", {
+                    src: iconURL ? __webpack_require__(48)("./" + iconURL + ".svg") : __webpack_require__(77),
+                    alt: "placeholder+image",
+                    className: "clothing-panel__clothing-icon-image"
+                }),
                 _react2.default.createElement(
                     "p",
                     { className: "clothing-panel__clothing-icon-caption" },
