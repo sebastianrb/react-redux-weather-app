@@ -215,10 +215,6 @@
             background: $secondary-color-muted;
         }
 
-        &:focus {
-            outline: auto;
-        }
-
         &::before {
             content: "";
             position: absolute;

@@ -40,7 +40,7 @@ class Header extends React.Component {
       }
     ));
 
-    autocomplete.addListener("place_changed", () => {
+    autocomplete.addListener("place_changed", event => {
       // Get the place details from the autocomplete object.
       var place = autocomplete.getPlace();
       var formattedPlace = place.formatted_address;
@@ -48,6 +48,7 @@ class Header extends React.Component {
       this.setState({
         term: formattedPlace
       });
+      this.onInputSubmit();
     });
   }
 
@@ -76,7 +77,9 @@ class Header extends React.Component {
   }
 
   onInputSubmit(event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     // //execute action creator with search term
     const searchTerm = this.state.term;
     this.setState({

@@ -30820,7 +30820,7 @@ var Header = function (_React$Component) {
         types: ["(cities)"]
       });
 
-      autocomplete.addListener("place_changed", function () {
+      autocomplete.addListener("place_changed", function (event) {
         // Get the place details from the autocomplete object.
         var place = autocomplete.getPlace();
         var formattedPlace = place.formatted_address;
@@ -30828,6 +30828,7 @@ var Header = function (_React$Component) {
         _this2.setState({
           term: formattedPlace
         });
+        _this2.onInputSubmit();
       });
     }
   }, {
@@ -30862,7 +30863,9 @@ var Header = function (_React$Component) {
     value: function onInputSubmit(event) {
       var _this3 = this;
 
-      event.preventDefault();
+      if (event) {
+        event.preventDefault();
+      }
       // //execute action creator with search term
       var searchTerm = this.state.term;
       this.setState({
