@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -7,24 +7,52 @@ import { getLastTerm } from "../actions/";
 import { getHourlyWeather } from "../actions/";
 
 class Header extends React.Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
-        searchInProgress: false,
-        test: "oldValue",
-        term: "",
-        inputValid: true,
-        nothingFound: false,
-        sections: ["weather", "clothing", "about"],
-        // selectedSection: "weather"
-        selectedSection: (window.location.pathname === "/" ? "weather" : window.location.pathname.split("/")[1])
+      searchInProgress: false,
+      test: "oldValue",
+      term: "",
+      inputValid: true,
+      nothingFound: false,
+      sections: ["weather", "clothing", "about"],
+      // selectedSection: "weather"
+      selectedSection: window.location.pathname === "/" ? "weather" : window.location.pathname.split("/")[1]
     };
   }
 
+  componentDidMount() {
+    console.log("Mounted");
+
+    window.initAutocomplete = this.initAutocomplete.bind(this);
+
+    loadJS(
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCfsBZUdAsnJNKwAz7og9V24764n_ZBmRw&libraries=places&callback=initAutocomplete"
+    );
+  }
+
+  initAutocomplete() {
+    let autocomplete = (autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById("google-autocomplete"),
+      {
+        types: ["(cities)"]
+      }
+    ));
+
+    autocomplete.addListener("place_changed", () => {
+      // Get the place details from the autocomplete object.
+      var place = autocomplete.getPlace();
+      var formattedPlace = place.formatted_address;
+      console.log(formattedPlace);
+      this.setState({
+        term: formattedPlace
+      });
+    });
+  }
+
   componentWillReceiveProps(nextProps) {
-    if(nextProps.weather.count === 0) {
+    if (nextProps.weather.count === 0) {
       this.toggleNothingFound(true);
       this.setState({
         searchInProgress: false
@@ -54,7 +82,7 @@ class Header extends React.Component {
     this.setState({
       searchInProgress: true
     });
-    if(searchTerm && searchTerm.length > 2) {
+    if (searchTerm && searchTerm.length > 2) {
       this.props.getLastTerm(searchTerm);
       this.props.weatherSearch(searchTerm, () => {
         console.log("Callback activated");
@@ -69,13 +97,16 @@ class Header extends React.Component {
       });
       this.setState({
         term: "",
-        inputValid: true,
-      })
+        inputValid: true
+      });
+
+      //clear input value
+      // document.getElementById("google-autocomplete").value = "";
     } else {
       this.setState({
         inputValid: false,
         searchInProgress: false
-      })
+      });
     }
   }
 
@@ -88,16 +119,14 @@ class Header extends React.Component {
   }
 
   render() {
-
     const weatherNavClasses = `header__nav-item ${this.state.selectedSection === "weather" ? "selected" : ""}`;
     const clothingNavClasses = `header__nav-item ${this.state.selectedSection === "clothing" ? "selected" : ""}`;
     const aboutNavClasses = `header__nav-item ${this.state.selectedSection === "about" ? "selected" : ""}`;
 
     //generate list items using map
-    const listItems = this.state.sections.map((section) => {
-
+    const listItems = this.state.sections.map(section => {
       const classList = `header__nav-item ${this.state.selectedSection === section ? "selected" : ""}`;
-      const linkTo = (section === "weather" ? "/" : section === "clothing" ? "/clothing" : "/about");
+      const linkTo = section === "weather" ? "/" : section === "clothing" ? "/clothing" : "/about";
 
       return (
         <li className={classList} onClick={this.onNavItemClick.bind(this, section)} key={section}>
@@ -114,7 +143,8 @@ class Header extends React.Component {
         <div className="header">
           <div className="header__title-container">
             <div className="header__image-container">
-              <img src={require("../images/cloud.svg")} alt="placeholder+image" className="header__image" /></div>
+              <img src={require("../images/cloud.svg")} alt="placeholder+image" className="header__image" />
+            </div>
             <h3 className="header__title">Weather App</h3>
           </div>
           <div className="header__nav-container">
@@ -127,15 +157,22 @@ class Header extends React.Component {
         <div className="header__search-bar">
           <form className="header__search-form">
             <input
+              id="google-autocomplete"
               value={this.state.term}
               placeholder="Enter the name of a city"
               type="text"
-              className={"header__search-field" + (this.state.inputValid ? "" : " invalid-term") + (this.state.nothingFound ? " nothing-found" : "")}
+              className={
+                "header__search-field" +
+                (this.state.inputValid ? "" : " invalid-term") +
+                (this.state.nothingFound ? " nothing-found" : "")
+              }
               onChange={this.onInputChange.bind(this)}
-              onFocus={() => this.setState({inputValid: true, nothingFound: false})}
+              onFocus={() => this.setState({ inputValid: true, nothingFound: false })}
             />
             <div className="invalid-term-warning">
-              <p className="invalid-term-warning__Caption">Your search term must be at least three characters long</p>
+              <p className="invalid-term-warning__Caption">
+                There was a problem. Try selecting a city from the dropdown menu and clicking "Find Weather"
+              </p>
             </div>
             <div className="invalid-term-no-results">
               <p className="invalid-term-warning__Caption">No results found. Please try again</p>
@@ -143,34 +180,52 @@ class Header extends React.Component {
             <button
               className={"header__submit-button" + (this.state.searchInProgress ? " loading" : "")}
               onClick={this.onInputSubmit.bind(this)}
-              >
+            >
               Find Weather
             </button>
           </form>
         </div>
       </div>
     );
-
   }
 }
-
 
 //connect to redux
 
 function mapStateToProps(state) {
-    return {
-      weather: state.weather
-    }
+  return {
+    weather: state.weather
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
+  return bindActionCreators(
+    {
       weatherSearch: weatherSearch,
       getLastTerm: getLastTerm,
       getHourlyWeather: getHourlyWeather
-    }, dispatch);
+    },
+    dispatch
+  );
 }
 
+//initialize the load JS script helper function
+function loadJS(src) {
+  var ref = window.document.getElementsByTagName("script")[0];
+  var script = window.document.createElement("script");
+  script.src = src;
+  script.async = true;
+  ref.parentNode.insertBefore(script, ref);
+}
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+    if (event.which == "13") {
+      event.preventDefault();
+    }
+  },
+  true
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
-

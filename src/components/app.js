@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Route, Switch } from "react-router-dom";
 
@@ -23,15 +23,14 @@ export default class App extends Component {
 
                 <div className="app-content">
                     <Switch>
-                        <Route path="/clothing" component={ClothingPanel}></Route>
-                        <Route path="/about" component={AboutPanel}></Route>
-                        <Route path="/" component={WeatherPanel}></Route>
+                        <Route path="/clothing" component={ClothingPanel} />
+                        <Route path="/about" component={AboutPanel} />
+                        <Route path="/" component={WeatherPanel} />
                     </Switch>
-
                 </div>
 
                 <Footer />
             </div>
-        )
+        );
     }
 }
