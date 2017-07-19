@@ -20,6 +20,9 @@ class Header extends React.Component {
       // selectedSection: "weather"
       selectedSection: window.location.pathname === "/" ? "weather" : window.location.pathname.split("/")[1]
     };
+
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onInputSubmit = this.onInputSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -169,7 +172,7 @@ class Header extends React.Component {
                 (this.state.inputValid ? "" : " invalid-term") +
                 (this.state.nothingFound ? " nothing-found" : "")
               }
-              onChange={this.onInputChange.bind(this)}
+              onChange={this.onInputChange}
               onFocus={() => this.setState({ inputValid: true, nothingFound: false })}
             />
             <div className="invalid-term-warning">
@@ -182,7 +185,7 @@ class Header extends React.Component {
             </div>
             <button
               className={"header__submit-button" + (this.state.searchInProgress ? " loading" : "")}
-              onClick={this.onInputSubmit.bind(this)}
+              onClick={this.onInputSubmit}
             >
               Find Weather
             </button>
