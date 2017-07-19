@@ -221,8 +221,10 @@ function loadJS(src) {
 document.addEventListener(
   "keydown",
   function(event) {
-    if (event.which == "13") {
-      event.preventDefault();
+    if (event.target !== document.querySelector(".header__submit-button")) {
+      if (event.which == "13") {
+        event.preventDefault();
+      }
     }
   },
   true
