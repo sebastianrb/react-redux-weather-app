@@ -30799,6 +30799,9 @@ var Header = function (_React$Component) {
       // selectedSection: "weather"
       selectedSection: window.location.pathname === "/" ? "weather" : window.location.pathname.split("/")[1]
     };
+
+    _this.onInputChange = _this.onInputChange.bind(_this);
+    _this.onInputSubmit = _this.onInputSubmit.bind(_this);
     return _this;
   }
 
@@ -30975,7 +30978,7 @@ var Header = function (_React$Component) {
               placeholder: "Enter the name of a city",
               type: "text",
               className: "header__search-field" + (this.state.inputValid ? "" : " invalid-term") + (this.state.nothingFound ? " nothing-found" : ""),
-              onChange: this.onInputChange.bind(this),
+              onChange: this.onInputChange,
               onFocus: function onFocus() {
                 return _this4.setState({ inputValid: true, nothingFound: false });
               }
@@ -31002,7 +31005,7 @@ var Header = function (_React$Component) {
               "button",
               {
                 className: "header__submit-button" + (this.state.searchInProgress ? " loading" : ""),
-                onClick: this.onInputSubmit.bind(this)
+                onClick: this.onInputSubmit
               },
               "Find Weather"
             )
