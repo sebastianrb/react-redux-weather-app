@@ -31043,14 +31043,6 @@ function loadJS(src) {
   ref.parentNode.insertBefore(script, ref);
 }
 
-document.addEventListener("keydown", function (event) {
-  if (event.target !== document.querySelector(".header__submit-button")) {
-    if (event.which == "13") {
-      event.preventDefault();
-    }
-  }
-}, true);
-
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Header);
 
 /***/ }),
