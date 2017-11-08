@@ -34762,7 +34762,7 @@ var AboutPanel = function AboutPanel(props) {
             _react2.default.createElement(
                 "p",
                 { className: "about-panel__description" },
-                "This is a single page application; the sectional partitioning of the site is implemented using React Routing."
+                "This is a single page application; the sectional partitioning of the site is implemented using React Router."
             )
         )
     );
