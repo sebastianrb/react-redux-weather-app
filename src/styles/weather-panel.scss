@@ -28,7 +28,7 @@
         text-align: center;
         width: 23%;
         min-width: 310px;
-        height: 415px;
+        height: 410px;
         border-radius: 4px;
         background: transparentize($primary-color, .9);
         overflow: hidden;
@@ -48,13 +48,13 @@
         }
 
         @media screen and (max-width: $breakpoint-small-medium) {
-            height: 400px;
+            height: 380px;
             font-size: 1em;
-            min-width: 310px;
+            min-width: 320px;
         }
 
         @media screen and (max-width: $breakpoint-extra-extra-small) {
-            min-width: 290px;
+            min-width: 280px;
         }
 
     }
@@ -66,18 +66,22 @@
         height: 450px;
 
         @media screen and (max-width: $breakpoint-small-medium) {
-            height: 420px;
+            height: 380px;
             min-width: 320px;
         }
 
         @media screen and (max-width: $breakpoint-extra-extra-small) {
-            min-width: 290px;
+            min-width: 280px;
         }
     }
 
     .weather-panel__day-header {
         margin: 0 auto 20px;
         padding: 35px 0 5px;
+
+        @media screen and (max-width: $breakpoint-small) {
+            margin: 0 auto 15px;
+        }
     }
 
     .weather-panel__day-content {
@@ -117,6 +121,10 @@
 .weather-panel__conditions-caption {
     margin: 10px auto;
     font-size: 1.3em;
+
+    @media screen and (max-width: $breakpoint-extra-small) {
+        font-size: 1.2em;
+    }
 
     span {
         letter-spacing: 0;
