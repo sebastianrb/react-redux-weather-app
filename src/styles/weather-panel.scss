@@ -61,23 +61,6 @@
 
     }
 
-    .weather-panel__day:first-child {
-        border: 4px solid transparentize($secondary-color, .5);
-        // background: transparentize($primary-color, .85);
-        width: 25%;
-        height: 450px;
-
-        @media screen and (max-width: $breakpoint-small-medium) {
-            height: 380px;
-            min-width: 320px;
-        }
-
-        @media screen and (max-width: $breakpoint-extra-extra-small) {
-            min-width: 280px;
-            height: 370px;
-        }
-    }
-
     .weather-panel__day-header {
         margin: 0 auto 20px;
         padding: 35px 0 5px;
@@ -105,6 +88,12 @@
         font-size: 1em;
         width: 75%;
         margin: 0 auto;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
 
         span {
             color: $secondary-color;

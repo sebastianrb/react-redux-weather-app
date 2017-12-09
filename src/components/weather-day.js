@@ -1,4 +1,7 @@
 import React from "react";
+import * as Scroll from 'react-scroll';
+
+let scroll = Scroll.animateScroll;
 
 export default class WeatherDay extends React.Component {
   constructor(props) {
@@ -27,7 +30,7 @@ export default class WeatherDay extends React.Component {
             <li className={"weather-panel__day" + ` ${this.props.classText}`} key={this.props.dayTitle}>
               <h3 className="weather-panel__day-header">{this.props.dayTitle}</h3>
               <div className="weather-panel__day-content">
-                <p className="weather-panel__day-placeholder-text">Search for a city to see weather data</p>
+                <p  onClick={() => scroll.scrollToTop()} className="weather-panel__day-placeholder-text">Search for a city to see weather data</p>
               </div>
             </li>
         );
