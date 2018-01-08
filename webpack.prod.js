@@ -45,13 +45,13 @@ module.exports = {
   },
   plugins: [
     //uglify JS and CSS
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false,
-    //     drop_console: false
-    //   },
-    //   sourceMap: true
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_console: false
+      },
+      sourceMap: true
+    }),
     //output CSS file
     new ExtractTextPlugin("app.min.css"),
     //minify CSS
@@ -64,10 +64,10 @@ module.exports = {
       showErrors: false
     }),
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("development")
-      }
-      // "process.env.NODE_ENV": JSON.stringify("production")
+      // "process.env": {
+      //   NODE_ENV: JSON.stringify("development")
+      // }
+      "process.env.NODE_ENV": JSON.stringify("production")
     }),
     new CleanWebpackPlugin(["./dist"])
   ],
