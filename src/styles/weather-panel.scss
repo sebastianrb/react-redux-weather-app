@@ -58,7 +58,6 @@
             min-width: 280px;
             height: 370px;
         }
-
     }
 
     .weather-panel__day-header {
@@ -68,7 +67,6 @@
         @media screen and (max-width: $breakpoint-extra-small) {
             margin: 0 auto 15px;
         }
-
 
         @media screen and (max-width: $breakpoint-extra-extra-small) {
             margin: 0 auto 10px;
@@ -94,7 +92,6 @@
             text-decoration: underline;
         }
 
-
         span {
             color: $secondary-color;
             font-size: 1em;
@@ -102,7 +99,6 @@
         }
     }
 }
-
 
 //weather data styling
 .weather-panel__conditions-icon {
@@ -117,6 +113,7 @@
 
 .weather-panel__conditions-caption {
     margin: 10px auto;
+    width: 91%;
     font-size: 1.3em;
 
     @media screen and (max-width: $breakpoint-extra-small) {
@@ -146,7 +143,6 @@ p.weather-panel__day-content-humidity {
     display: none;
 }
 
-
 //transition group ctyling
 .fade-enter {
     transform: scale(.8);
@@ -171,5 +167,3 @@ p.weather-panel__day-content-humidity {
     transform: scale(.9);
     position: absolute;
 }
-
-
